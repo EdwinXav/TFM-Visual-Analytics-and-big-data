@@ -1,0 +1,8 @@
+# Dependencias del proyecto (se instalan en la imagen docker/Dockerfile).
+# pandas, numpy y pyarrow ya vienen en la imagen de Airflow; no se fijan
+# aquí para no romper sus restricciones. Versiones efectivas: ver
+# docs/versiones.txt (generado con `pip freeze` dentro del contenedor).
+pyspark==4.2.0
+faker
+pyyaml
+pytest

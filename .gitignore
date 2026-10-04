@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+logs/
+spark-warehouse/
+metastore_db/
+*.log
+.pytest_cache/
+
+# Datos generados: se regeneran con la semilla. Se versiona solo la muestra
+# pequeña (data/muestra/) para que el repositorio incluya datos analizados.
+data/raw/*
+data/curated/*
+data/analytics/*
+data/quarantine/*
+!data/**/.gitkeep
+
+# Ficheros temporales de Office / Power BI
+~$*
+*.pbix.bak

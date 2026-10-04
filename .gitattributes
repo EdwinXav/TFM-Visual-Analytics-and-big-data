@@ -1,0 +1,5 @@
+# Finales de línea LF (los ficheros se usan dentro de contenedores Linux)
+* text=auto eol=lf
+*.pbix binary
+*.xlsx binary
+*.png binary

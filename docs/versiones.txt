@@ -1,0 +1,11 @@
+# Versiones efectivas en la imagen tfm-airflow-spark:0.1 (generado 2026-10-03)
+openjdk version "17.0.20.1" 2026-08-18
+Python 3.11.16
+apache-airflow==3.3.2
+Faker==40.40.0
+numpy==2.4.6
+pandas==3.0.5
+pyarrow==25.0.1
+pyspark==4.2.0
+pytest==9.1.1
+PyYAML==6.0.3

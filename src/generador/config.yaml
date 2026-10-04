@@ -1,0 +1,73 @@
+# Parámetros del generador de datos simulados.
+# Cualquier cambio aquí debe reflejarse en docs/esquema_datos.md.
+
+semilla: 42                       # numpy, random y Faker se inicializan con esta semilla
+
+# Periodo simulado de actividad (apertura de tickets y altas de equipos)
+periodo:
+  inicio: "2024-01-01"
+  fin: "2025-12-31"
+
+# Tamaños de los conjuntos (nº de tickets). El escenario B (Excel) solo
+# se ejecuta sobre los tamaños marcados en `tamanos_escenario_b`.
+tamanos: [1000, 10000, 100000, 1000000]
+tamanos_escenario_b: [1000, 10000]
+
+# La organización escala con el volumen de tickets
+proporcion_usuarios_por_ticket: 0.05   # 10^4 tickets -> 500 usuarios
+equipos_por_usuario: 1.3               # portátil/sobremesa + periféricos/móvil
+
+# ---------------------------------------------------------------------------
+# Catálogos cerrados (regla de validez: cualquier valor fuera de estas listas
+# es una anomalía "fuera de catálogo")
+# ---------------------------------------------------------------------------
+catalogos:
+  tipo_equipo: [Portatil, Sobremesa, Monitor, Impresora, Movil, Tablet]
+  estado_equipo: [En uso, En reparacion, En stock, Baja]
+  marcas_modelos:                      # marca -> modelos
+    Dell: [Latitude 5440, Latitude 7440, OptiPlex 7010, P2423]
+    HP: [EliteBook 840, ProBook 450, ProDesk 400, LaserJet M404]
+    Lenovo: [ThinkPad T14, ThinkPad E14, ThinkCentre M70]
+    Apple: [MacBook Air M2, iPhone 14, iPad 10]
+    Samsung: [Galaxy A54, Galaxy Tab S9]
+  categoria: [Hardware, Software, Red, Acceso, Otros]
+  prioridad: [Baja, Media, Alta, Critica]
+  estado_ticket: [Abierto, En curso, Resuelto, Cerrado]
+  departamento: [Finanzas, Recursos Humanos, Comercial, Operaciones, Marketing, TI, Direccion, Legal]
+  ubicacion: [Madrid, Barcelona, Valencia, Sevilla, Bilbao]
+  rol: [Empleado, Responsable, Directivo, Tecnico, Becario]
+  num_tecnicos: 12                     # tecnicos T01..T12
+
+# ---------------------------------------------------------------------------
+# Patrones plausibles
+# ---------------------------------------------------------------------------
+distribucion_prioridad: {Baja: 0.25, Media: 0.50, Alta: 0.20, Critica: 0.05}
+distribucion_categoria: {Hardware: 0.30, Software: 0.30, Red: 0.15, Acceso: 0.15, Otros: 0.10}
+
+# Tiempo de resolución ~ lognormal; mediana en horas por prioridad,
+# multiplicada por un factor por categoría.
+resolucion_mediana_horas: {Critica: 3, Alta: 6, Media: 18, Baja: 48}
+resolucion_sigma: 0.8
+factor_categoria: {Hardware: 1.4, Software: 1.0, Red: 1.2, Acceso: 0.6, Otros: 1.0}
+
+# Modelos con tasa de incidencias superior a la media (multiplicador del peso)
+modelos_problematicos: {"ProBook 450": 2.5, "Galaxy A54": 2.0}
+
+# Proporción de tickets todavía no resueltos al final del periodo
+# (estado Abierto/En curso y fecha_cierre vacía: NO es una anomalía)
+proporcion_tickets_abiertos: 0.06
+
+# Plazos de SLA (horas naturales) usados en el KPI de cumplimiento
+sla_horas: {Critica: 4, Alta: 8, Media: 24, Baja: 72}
+
+# ---------------------------------------------------------------------------
+# Anomalías inyectadas: proporción sobre el nº de registros de la tabla
+# indicada. Cada anomalía se registra con un id único en
+# data/raw/anomalias_inyectadas.csv. Un registro recibe como máximo una.
+# ---------------------------------------------------------------------------
+anomalias:
+  nulos:               {tabla: tickets,    proporcion: 0.01}  # categoria/prioridad/equipo_id vacíos
+  duplicados:          {tabla: inventario, proporcion: 0.01}  # mismo equipo_id dado de alta dos veces
+  huerfanos:           {tabla: tickets,    proporcion: 0.01}  # equipo_id o usuario_id inexistente
+  fechas_incoherentes: {tabla: tickets,    proporcion: 0.01}  # fecha_cierre < fecha_apertura
+  fuera_de_catalogo:   {tabla: tickets,    proporcion: 0.01}  # p. ej. prioridad "Urgentisima"
