@@ -1,0 +1,42 @@
+{
+  "n": 100000,
+  "run_id": "20261029T033535Z-6dae47",
+  "tablas": {
+    "usuarios": {
+      "entrada": 5000,
+      "validos": 5000,
+      "rechazados": 0,
+      "por_regla": {
+        "completitud": 0,
+        "validez": 0,
+        "consistencia_temporal": 0,
+        "unicidad": 0,
+        "integridad_referencial": 0
+      }
+    },
+    "inventario": {
+      "entrada": 6565,
+      "validos": 6500,
+      "rechazados": 65,
+      "por_regla": {
+        "completitud": 0,
+        "validez": 0,
+        "consistencia_temporal": 0,
+        "unicidad": 65,
+        "integridad_referencial": 0
+      }
+    },
+    "tickets": {
+      "entrada": 100000,
+      "validos": 96000,
+      "rechazados": 4000,
+      "por_regla": {
+        "completitud": 1000,
+        "validez": 1000,
+        "consistencia_temporal": 1000,
+        "unicidad": 0,
+        "integridad_referencial": 1000
+      }
+    }
+  }
+}

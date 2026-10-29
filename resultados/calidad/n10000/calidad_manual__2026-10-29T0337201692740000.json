@@ -1,0 +1,42 @@
+{
+  "n": 10000,
+  "run_id": "manual__2026-10-29T0337201692740000",
+  "tablas": {
+    "usuarios": {
+      "entrada": 500,
+      "validos": 500,
+      "rechazados": 0,
+      "por_regla": {
+        "completitud": 0,
+        "validez": 0,
+        "consistencia_temporal": 0,
+        "unicidad": 0,
+        "integridad_referencial": 0
+      }
+    },
+    "inventario": {
+      "entrada": 656,
+      "validos": 650,
+      "rechazados": 6,
+      "por_regla": {
+        "completitud": 0,
+        "validez": 0,
+        "consistencia_temporal": 0,
+        "unicidad": 6,
+        "integridad_referencial": 0
+      }
+    },
+    "tickets": {
+      "entrada": 10000,
+      "validos": 9600,
+      "rechazados": 400,
+      "por_regla": {
+        "completitud": 100,
+        "validez": 100,
+        "consistencia_temporal": 100,
+        "unicidad": 0,
+        "integridad_referencial": 100
+      }
+    }
+  }
+}

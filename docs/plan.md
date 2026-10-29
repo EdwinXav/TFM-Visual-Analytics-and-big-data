@@ -21,12 +21,14 @@ Entregas: **E2 9/11/2026** (generador + pipeline Spark + DAG básico; caps. 3–
 - [ ] Escribir `referencia/procedimiento.md` (escenario B) **antes** de ejecutarlo.
 
 ## Iteración 2 · Pipeline en Spark (20 oct–9 nov) — objetivo 2
-- [ ] Ingesta (CSV → DataFrames con esquema explícito).
-- [ ] Validación: las 5 reglas; cuarentena; informe de calidad en `resultados/calidad`.
-- [ ] Limpieza e integración → `data/curated` (Parquet).
-- [ ] Modelo en estrella + KPI → `data/analytics` (un Parquet por tabla).
-- [ ] Registro de métricas de ejecución (duración por tarea, registros).
-- [ ] Pruebas con datos pequeños con resultados conocidos.
+- [x] Ingesta (CSV → DataFrames con esquema explícito).
+- [x] Validación: las 5 reglas; cuarentena; informe de calidad en `resultados/calidad`.
+- [x] Limpieza e integración → `data/curated` (Parquet).
+- [x] Modelo en estrella + KPI → `data/analytics` (un Parquet por tabla, nombre fijo).
+- [x] Registro de métricas de ejecución → `resultados/tiempos/escenario_A_pasos.csv`.
+- [x] Pruebas (5): detección 100 % sin falsos positivos, KPI = cálculo independiente, métricas.
+- [x] Ejecución preliminar 10^3–10^6: detección 100 % en todos; ~19 s (10^3) a ~35 s (10^6).
+- [x] DAG básico `pipeline_tfm` (comprobar_entrada → curar → analitica) ejecutado con éxito.
 
 ## Iteración 3 · Orquestación (27 oct–14 nov) — objetivo 2
 - [ ] DAG del pipeline con sensor de llegada de ficheros, dependencias y reintentos.
