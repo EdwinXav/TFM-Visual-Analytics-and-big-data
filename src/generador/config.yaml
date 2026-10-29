@@ -24,12 +24,23 @@ equipos_por_usuario: 1.3               # portátil/sobremesa + periféricos/móv
 catalogos:
   tipo_equipo: [Portatil, Sobremesa, Monitor, Impresora, Movil, Tablet]
   estado_equipo: [En uso, En reparacion, En stock, Baja]
-  marcas_modelos:                      # marca -> modelos
-    Dell: [Latitude 5440, Latitude 7440, OptiPlex 7010, P2423]
-    HP: [EliteBook 840, ProBook 450, ProDesk 400, LaserJet M404]
-    Lenovo: [ThinkPad T14, ThinkPad E14, ThinkCentre M70]
-    Apple: [MacBook Air M2, iPhone 14, iPad 10]
-    Samsung: [Galaxy A54, Galaxy Tab S9]
+  modelos:                             # cada modelo pertenece a una marca y a un tipo
+    - {marca: Dell,    modelo: Latitude 5440,  tipo: Portatil}
+    - {marca: Dell,    modelo: Latitude 7440,  tipo: Portatil}
+    - {marca: Dell,    modelo: OptiPlex 7010,  tipo: Sobremesa}
+    - {marca: Dell,    modelo: P2423,          tipo: Monitor}
+    - {marca: HP,      modelo: EliteBook 840,  tipo: Portatil}
+    - {marca: HP,      modelo: ProBook 450,    tipo: Portatil}
+    - {marca: HP,      modelo: ProDesk 400,    tipo: Sobremesa}
+    - {marca: HP,      modelo: LaserJet M404,  tipo: Impresora}
+    - {marca: Lenovo,  modelo: ThinkPad T14,   tipo: Portatil}
+    - {marca: Lenovo,  modelo: ThinkPad E14,   tipo: Portatil}
+    - {marca: Lenovo,  modelo: ThinkCentre M70, tipo: Sobremesa}
+    - {marca: Apple,   modelo: MacBook Air M2, tipo: Portatil}
+    - {marca: Apple,   modelo: iPhone 14,      tipo: Movil}
+    - {marca: Apple,   modelo: iPad 10,        tipo: Tablet}
+    - {marca: Samsung, modelo: Galaxy A54,     tipo: Movil}
+    - {marca: Samsung, modelo: Galaxy Tab S9,  tipo: Tablet}
   categoria: [Hardware, Software, Red, Acceso, Otros]
   prioridad: [Baja, Media, Alta, Critica]
   estado_ticket: [Abierto, En curso, Resuelto, Cerrado]
@@ -43,10 +54,17 @@ catalogos:
 # ---------------------------------------------------------------------------
 distribucion_prioridad: {Baja: 0.25, Media: 0.50, Alta: 0.20, Critica: 0.05}
 distribucion_categoria: {Hardware: 0.30, Software: 0.30, Red: 0.15, Acceso: 0.15, Otros: 0.10}
+distribucion_estado_equipo: {En uso: 0.80, En reparacion: 0.04, En stock: 0.10, Baja: 0.06}
+distribucion_rol: {Empleado: 0.70, Responsable: 0.15, Directivo: 0.04, Tecnico: 0.06, Becario: 0.05}
+distribucion_estado_cerrado: {Resuelto: 0.3, Cerrado: 0.7}   # tickets con fecha_cierre
+distribucion_estado_abierto: {Abierto: 0.5, En curso: 0.5}   # tickets sin fecha_cierre
+antiguedad_max_equipo_anios: 5         # adquisiciones desde (inicio - 5 años)
+garantia_anios: [2, 3, 4]
 
 # Tiempo de resolución ~ lognormal; mediana en horas por prioridad,
-# multiplicada por un factor por categoría.
-resolucion_mediana_horas: {Critica: 3, Alta: 6, Media: 18, Baja: 48}
+# multiplicada por un factor por categoría. Con estos valores el
+# cumplimiento de SLA ronda el 80-90 % y es peor en Hardware y Red.
+resolucion_mediana_horas: {Critica: 2, Alta: 3.5, Media: 9, Baja: 24}
 resolucion_sigma: 0.8
 factor_categoria: {Hardware: 1.4, Software: 1.0, Red: 1.2, Acceso: 0.6, Otros: 1.0}
 
@@ -54,8 +72,15 @@ factor_categoria: {Hardware: 1.4, Software: 1.0, Red: 1.2, Acceso: 0.6, Otros: 1
 modelos_problematicos: {"ProBook 450": 2.5, "Galaxy A54": 2.0}
 
 # Proporción de tickets todavía no resueltos al final del periodo
-# (estado Abierto/En curso y fecha_cierre vacía: NO es una anomalía)
+# (estado Abierto/En curso y fecha_cierre vacía: NO es una anomalía).
+# Son los que cerrarían después del fin del periodo, completados con
+# tickets recientes elegidos al azar hasta alcanzar esta proporción.
 proporcion_tickets_abiertos: 0.06
+
+# Valores inválidos usados para las anomalías "fuera de catálogo"
+valores_fuera_catalogo:
+  prioridad: [Urgentisima, Muy alta, P1, Normal]
+  categoria: [Hardwre, Impresoras, General, N/A]
 
 # Plazos de SLA (horas naturales) usados en el KPI de cumplimiento
 sla_horas: {Critica: 4, Alta: 8, Media: 24, Baja: 72}

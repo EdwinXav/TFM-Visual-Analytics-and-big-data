@@ -1,0 +1,67 @@
+equipo_id,tipo,marca,modelo,fecha_adquisicion,fecha_fin_garantia,estado,ubicacion,usuario_id
+E000037,Portatil,HP,EliteBook 840,2022-07-29,2025-07-28,En uso,Bilbao,U000021
+E000008,Portatil,Apple,MacBook Air M2,2025-04-16,2028-04-15,En uso,Valencia,U000027
+E000043,Tablet,Apple,iPad 10,2025-07-12,2027-07-12,En uso,Barcelona,U000043
+E000045,Portatil,HP,ProBook 450,2024-11-01,2028-10-31,En uso,Bilbao,U000032
+E000063,Portatil,Lenovo,ThinkPad E14,2019-07-10,2021-07-09,En uso,Bilbao,U000025
+E000028,Portatil,Dell,Latitude 7440,2023-02-25,2026-02-24,En uso,Sevilla,U000016
+E000022,Tablet,Apple,iPad 10,2023-08-17,2027-08-16,En uso,Valencia,U000027
+E000033,Portatil,HP,ProBook 450,2025-02-06,2029-02-05,En stock,Barcelona,
+E000006,Portatil,Dell,Latitude 7440,2023-12-07,2026-12-06,En uso,Madrid,U000036
+E000038,Portatil,Dell,Latitude 5440,2020-06-27,2023-06-27,En uso,Barcelona,U000020
+E000002,Sobremesa,HP,ProDesk 400,2022-09-10,2024-09-09,En uso,Sevilla,U000007
+E000004,Portatil,HP,EliteBook 840,2024-06-26,2027-06-26,En uso,Madrid,U000050
+E000062,Portatil,Dell,Latitude 7440,2022-02-03,2025-02-02,En uso,Bilbao,U000045
+E000046,Portatil,Apple,MacBook Air M2,2020-10-09,2022-10-09,En uso,Bilbao,U000017
+E000036,Portatil,HP,ProBook 450,2021-01-16,2023-01-16,En uso,Barcelona,U000037
+E000050,Portatil,Lenovo,ThinkPad T14,2025-08-24,2028-08-23,Baja,Sevilla,
+E000057,Portatil,HP,ProBook 450,2022-01-05,2024-01-05,Baja,Sevilla,
+E000042,Movil,Samsung,Galaxy A54,2023-04-12,2026-04-11,En uso,Sevilla,U000009
+E000026,Tablet,Apple,iPad 10,2021-12-22,2025-12-21,En uso,Sevilla,U000009
+E000025,Portatil,Lenovo,ThinkPad T14,2022-02-20,2024-02-20,En uso,Barcelona,U000020
+E000054,Portatil,HP,EliteBook 840,2025-07-03,2029-07-02,En stock,Bilbao,
+E000018,Sobremesa,HP,ProDesk 400,2019-02-11,2023-02-10,En uso,Madrid,U000050
+E000061,Portatil,HP,EliteBook 840,2022-11-03,2025-11-02,En uso,Bilbao,U000008
+E000039,Movil,Samsung,Galaxy A54,2021-12-29,2023-12-29,En uso,Sevilla,U000024
+E000032,Sobremesa,HP,ProDesk 400,2022-04-10,2025-04-09,En uso,Bilbao,U000033
+E000009,Portatil,Lenovo,ThinkPad E14,2021-04-24,2024-04-23,En uso,Bilbao,U000005
+E000056,Sobremesa,HP,ProDesk 400,2020-03-18,2023-03-18,En uso,Valencia,U000042
+E000030,Tablet,Samsung,Galaxy Tab S9,2019-03-29,2022-03-28,En uso,Valencia,U000014
+E000033,Portatil,HP,ProBook 450,2025-02-06,2029-02-05,Baja,Barcelona,
+E000064,Tablet,Apple,iPad 10,2019-07-16,2022-07-15,En uso,Barcelona,U000020
+E000035,Monitor,Dell,P2423,2025-08-07,2028-08-06,En uso,Barcelona,U000029
+E000010,Portatil,HP,ProBook 450,2025-01-11,2027-01-11,En reparacion,Barcelona,U000002
+E000023,Movil,Apple,iPhone 14,2024-08-23,2026-08-23,En uso,Barcelona,U000012
+E000058,Portatil,Lenovo,ThinkPad E14,2025-11-24,2029-11-23,En uso,Bilbao,U000031
+E000049,Portatil,Apple,MacBook Air M2,2023-03-17,2026-03-16,En uso,Valencia,U000027
+E000055,Impresora,HP,LaserJet M404,2020-08-15,2023-08-15,En uso,Bilbao,U000045
+E000017,Portatil,Dell,Latitude 7440,2020-08-09,2022-08-09,En uso,Valencia,U000013
+E000024,Portatil,Dell,Latitude 7440,2022-05-13,2024-05-12,En uso,Sevilla,U000024
+E000051,Portatil,Lenovo,ThinkPad T14,2023-12-28,2027-12-27,En uso,Valencia,U000023
+E000003,Movil,Samsung,Galaxy A54,2022-04-17,2026-04-16,En uso,Barcelona,U000019
+E000027,Sobremesa,HP,ProDesk 400,2019-11-14,2023-11-13,En uso,Bilbao,U000045
+E000065,Sobremesa,HP,ProDesk 400,2024-07-19,2027-07-19,En uso,Barcelona,U000030
+E000048,Portatil,Apple,MacBook Air M2,2022-07-10,2025-07-09,En uso,Sevilla,U000018
+E000013,Sobremesa,HP,ProDesk 400,2020-07-23,2023-07-23,En uso,Barcelona,U000010
+E000041,Portatil,HP,EliteBook 840,2025-04-10,2028-04-09,En uso,Madrid,U000050
+E000015,Movil,Samsung,Galaxy A54,2021-07-16,2023-07-16,En stock,Sevilla,
+E000029,Tablet,Samsung,Galaxy Tab S9,2022-12-13,2024-12-12,En uso,Barcelona,U000038
+E000034,Portatil,Dell,Latitude 5440,2023-01-16,2027-01-15,En uso,Valencia,U000027
+E000016,Movil,Apple,iPhone 14,2024-08-16,2027-08-16,En uso,Bilbao,U000031
+E000019,Monitor,Dell,P2423,2024-11-16,2027-11-16,En uso,Barcelona,U000029
+E000007,Tablet,Apple,iPad 10,2023-05-29,2027-05-28,En uso,Bilbao,U000033
+E000040,Portatil,HP,ProBook 450,2021-04-19,2024-04-18,En uso,Valencia,U000042
+E000012,Sobremesa,HP,ProDesk 400,2024-11-07,2027-11-07,En uso,Sevilla,U000026
+E000047,Movil,Apple,iPhone 14,2024-01-13,2028-01-12,En reparacion,Bilbao,U000047
+E000020,Movil,Apple,iPhone 14,2021-09-26,2025-09-25,Baja,Barcelona,
+E000001,Tablet,Apple,iPad 10,2024-08-06,2027-08-06,En uso,Bilbao,U000033
+E000044,Portatil,Dell,Latitude 7440,2022-05-15,2026-05-14,En uso,Barcelona,U000037
+E000052,Impresora,HP,LaserJet M404,2025-07-06,2027-07-06,En uso,Barcelona,U000019
+E000059,Tablet,Apple,iPad 10,2025-08-11,2028-08-10,En uso,Valencia,U000023
+E000031,Movil,Apple,iPhone 14,2024-08-11,2026-08-11,En uso,Barcelona,U000030
+E000014,Tablet,Apple,iPad 10,2021-06-03,2025-06-02,En uso,Barcelona,U000040
+E000011,Tablet,Apple,iPad 10,2021-03-19,2025-03-18,En uso,Barcelona,U000002
+E000021,Movil,Samsung,Galaxy A54,2024-08-07,2027-08-07,En uso,Bilbao,U000001
+E000005,Sobremesa,Dell,OptiPlex 7010,2025-04-27,2027-04-27,En stock,Bilbao,
+E000060,Portatil,Lenovo,ThinkPad T14,2025-03-23,2027-03-23,En uso,Sevilla,U000044
+E000053,Tablet,Samsung,Galaxy Tab S9,2022-05-25,2026-05-24,Baja,Valencia,

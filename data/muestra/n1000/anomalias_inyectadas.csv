@@ -1,0 +1,42 @@
+anomalia_id,familia,tabla,clave,campo,valor_original,valor_inyectado
+A000001,nulos,tickets,T0000966,categoria,Acceso,
+A000002,nulos,tickets,T0000228,equipo_id,E000016,
+A000003,nulos,tickets,T0000123,categoria,Hardware,
+A000004,nulos,tickets,T0000618,equipo_id,E000038,
+A000005,nulos,tickets,T0000990,equipo_id,E000017,
+A000006,nulos,tickets,T0000852,categoria,Red,
+A000007,nulos,tickets,T0000297,equipo_id,E000051,
+A000008,nulos,tickets,T0000482,equipo_id,E000036,
+A000009,nulos,tickets,T0000761,categoria,Hardware,
+A000010,nulos,tickets,T0000520,categoria,Software,
+A000011,huerfanos,tickets,T0000575,equipo_id,E000022,E900065
+A000012,huerfanos,tickets,T0000033,equipo_id,E000056,E900066
+A000013,huerfanos,tickets,T0000328,equipo_id,E000016,E900067
+A000014,huerfanos,tickets,T0000846,usuario_id,U000033,U900053
+A000015,huerfanos,tickets,T0000770,equipo_id,E000026,E900069
+A000016,huerfanos,tickets,T0000857,equipo_id,E000059,E900070
+A000017,huerfanos,tickets,T0000748,equipo_id,E000009,E900071
+A000018,huerfanos,tickets,T0000876,equipo_id,E000019,E900072
+A000019,huerfanos,tickets,T0000410,usuario_id,U000033,U900058
+A000020,huerfanos,tickets,T0000040,equipo_id,E000042,E900074
+A000021,fechas_incoherentes,tickets,T0000647,fecha_cierre,2025-07-05 23:08:15,2025-06-28 22:18:42
+A000022,fechas_incoherentes,tickets,T0000494,fecha_cierre,2025-04-05 01:22:30,2025-04-01 20:36:28
+A000023,fechas_incoherentes,tickets,T0000289,fecha_cierre,2024-10-23 08:52:35,2024-10-21 05:12:36
+A000024,fechas_incoherentes,tickets,T0000967,fecha_cierre,2025-12-19 22:24:52,2025-12-17 23:56:28
+A000025,fechas_incoherentes,tickets,T0000519,fecha_cierre,2025-04-17 14:09:10,2025-04-16 13:26:37
+A000026,fechas_incoherentes,tickets,T0000362,fecha_cierre,2024-12-21 04:51:00,2024-12-17 10:23:27
+A000027,fechas_incoherentes,tickets,T0000689,fecha_cierre,2025-07-21 20:24:20,2025-07-18 21:09:48
+A000028,fechas_incoherentes,tickets,T0000439,fecha_cierre,2025-02-21 10:20:06,2025-02-19 13:45:16
+A000029,fechas_incoherentes,tickets,T0000991,fecha_cierre,2025-12-29 05:14:19,2025-12-28 04:54:39
+A000030,fechas_incoherentes,tickets,T0000679,fecha_cierre,2025-07-16 05:48:50,2025-07-14 22:32:20
+A000031,fuera_de_catalogo,tickets,T0000555,categoria,Hardware,Hardwre
+A000032,fuera_de_catalogo,tickets,T0000569,categoria,Red,Impresoras
+A000033,fuera_de_catalogo,tickets,T0000241,categoria,Software,Impresoras
+A000034,fuera_de_catalogo,tickets,T0000600,categoria,Red,N/A
+A000035,fuera_de_catalogo,tickets,T0000686,prioridad,Critica,Urgentisima
+A000036,fuera_de_catalogo,tickets,T0000170,prioridad,Media,Urgentisima
+A000037,fuera_de_catalogo,tickets,T0000047,prioridad,Media,P1
+A000038,fuera_de_catalogo,tickets,T0000386,categoria,Red,Hardwre
+A000039,fuera_de_catalogo,tickets,T0000301,prioridad,Critica,Normal
+A000040,fuera_de_catalogo,tickets,T0000722,categoria,Hardware,N/A
+A000041,duplicados,inventario,E000033,equipo_id,,E000033

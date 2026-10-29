@@ -1,6 +1,6 @@
 # Esquema de datos
 
-Datos 100 % simulados (ver `src/generador/config.yaml`). Ficheros CSV en `data/raw/`, codificación UTF-8, separador `,`, fechas en ISO 8601 (`YYYY-MM-DD` o `YYYY-MM-DD HH:MM:SS`).
+Datos 100 % simulados (ver `src/generador/config.yaml`), generados con `src/generador/generar.py`. Cada tamaño se escribe en `data/raw/n<tickets>/` (p. ej. `data/raw/n10000/`); la muestra de 10^3 se versiona en `data/muestra/n1000/`. Ficheros CSV codificación UTF-8, separador `,`, fechas en ISO 8601 (`YYYY-MM-DD` o `YYYY-MM-DD HH:MM:SS`).
 
 ## Fuentes (capa raw)
 
@@ -18,8 +18,8 @@ Datos 100 % simulados (ver `src/generador/config.yaml`). Ficheros CSV en `data/r
 |---|---|---|---|
 | equipo_id | string `E000001` | sí | clave primaria, única |
 | tipo | string | sí | catálogo `tipo_equipo` |
-| marca | string | sí | clave de `marcas_modelos` |
-| modelo | string | sí | modelo válido para la marca |
+| marca | string | sí | según catálogo `modelos` |
+| modelo | string | sí | catálogo `modelos` (marca y tipo coherentes) |
 | fecha_adquisicion | date | sí | ≤ fin del periodo |
 | fecha_fin_garantia | date | sí | > fecha_adquisicion (2–4 años) |
 | estado | string | sí | catálogo `estado_equipo` |
@@ -29,7 +29,7 @@ Datos 100 % simulados (ver `src/generador/config.yaml`). Ficheros CSV en `data/r
 ### tickets.csv
 | Campo | Tipo | Obligatorio | Regla / dominio |
 |---|---|---|---|
-| ticket_id | string `T0000001` | sí | clave primaria, única |
+| ticket_id | string `T0000001` | sí | clave primaria, única; numeración en orden de apertura |
 | fecha_apertura | timestamp | sí | dentro del periodo |
 | fecha_cierre | timestamp | condicional | obligatoria si estado ∈ {Resuelto, Cerrado}; vacía si {Abierto, En curso}; ≥ fecha_apertura |
 | categoria | string | sí | catálogo `categoria` |

@@ -1,7 +1,7 @@
 # Plan de trabajo por iteraciones
 
 Marca cada casilla al terminar y deja evidencia (test o ejecución).
-Fecha límite de la 3.ª entrega (trabajo completo): **7 de diciembre de 2026**.
+Entregas: **E2 9/11/2026** (generador + pipeline Spark + DAG básico; caps. 3–4 completos, 5 avanzado) · **E3 7/12/2026** (todo terminado) · depósito hasta el 3/02/2027 (solo correcciones).
 
 ## Iteración 0 · Preparación (6–12 oct)
 - [x] Estructura del repositorio, `requirements.txt`, `.gitignore`.
@@ -9,13 +9,15 @@ Fecha límite de la 3.ª entrega (trabajo completo): **7 de diciembre de 2026**.
 - [x] `docs/esquema_datos.md` y `docs/indicadores.md`.
 - [x] `docker-compose.yaml`: Airflow 3 (LocalExecutor) + PySpark en una imagen.
 - [x] DAG de humo `prueba_entorno` ejecutado con éxito dentro de Docker (Spark 4.2.0, 2026-10-04).
-- [ ] Repositorio git propio (identidad de Edwin) y subido a GitHub.
+- [x] Repositorio git propio (identidad de Edwin).
+- [ ] Subido a GitHub (lo crea Edwin como único propietario).
 
 ## Iteración 1 · Datos simulados (13–26 oct) — objetivo 1
-- [ ] Generador reproducible (semilla) de usuarios, inventario y tickets con integridad referencial.
-- [ ] Inyección de las 5 familias de anomalías + `anomalias_inyectadas.csv`.
-- [ ] Tamaños configurables (10^3 a 10^6) y muestra 10^3 versionada en `data/muestra/`.
-- [ ] Pruebas: reproducibilidad, integridad, recuento de anomalías.
+- [x] Generador reproducible (semilla) de usuarios, inventario y tickets con integridad referencial.
+- [x] Inyección de las 5 familias de anomalías + `anomalias_inyectadas.csv`.
+- [x] Tamaños configurables (10^3 a 10^6; 10^6 en ~9 s) y muestra 10^3 versionada en `data/muestra/`.
+- [x] Pruebas (10): reproducibilidad, tamaños, recuento de anomalías, solo violaciones registradas, coherencia, patrones.
+- [x] Resumen descriptivo para la memoria: `resultados/datos/resumen_n10000.md`.
 - [ ] Escribir `referencia/procedimiento.md` (escenario B) **antes** de ejecutarlo.
 
 ## Iteración 2 · Pipeline en Spark (20 oct–9 nov) — objetivo 2

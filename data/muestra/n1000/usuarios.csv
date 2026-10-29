@@ -1,0 +1,51 @@
+usuario_id,nombre,departamento,ubicacion,rol
+U000001,Flavio Plaza-Pou,Operaciones,Bilbao,Empleado
+U000002,Marisa Barbero Villalonga,Legal,Barcelona,Empleado
+U000003,Lourdes Coronado-Díaz,Recursos Humanos,Barcelona,Directivo
+U000004,Pancho Huguet Tejada,Recursos Humanos,Sevilla,Empleado
+U000005,Carmelo Cuéllar Aller,Legal,Bilbao,Responsable
+U000006,José María Vito Diez Urrutia,Comercial,Madrid,Directivo
+U000007,Candelario Belmonte Uribe,TI,Sevilla,Empleado
+U000008,Hector Bernardino Monreal Aroca,Legal,Bilbao,Empleado
+U000009,Ciríaco Alvarado Pina,Finanzas,Sevilla,Empleado
+U000010,María Jesús Gascón Mayol,Recursos Humanos,Barcelona,Empleado
+U000011,Abraham Uribe-Ripoll,Direccion,Bilbao,Tecnico
+U000012,Juanito Aguado-Lozano,Marketing,Barcelona,Empleado
+U000013,Petrona Recio Uría,Legal,Valencia,Becario
+U000014,Sofía Pombo Arranz,Marketing,Valencia,Empleado
+U000015,Guillermo del Ramón,Finanzas,Valencia,Empleado
+U000016,Ámbar Gisbert Arnau,Marketing,Sevilla,Empleado
+U000017,Ruy Vilalta Castell,Finanzas,Bilbao,Empleado
+U000018,Édgar Bermudez Oliveras,TI,Sevilla,Empleado
+U000019,Samanta Galiano,Marketing,Barcelona,Responsable
+U000020,Marco de Rocha,Marketing,Barcelona,Empleado
+U000021,Valerio Flor,Direccion,Bilbao,Empleado
+U000022,Gabino Anglada Báez,TI,Sevilla,Empleado
+U000023,Elisabet Reguera Cal,Finanzas,Valencia,Empleado
+U000024,Amalia de Nieto,Marketing,Sevilla,Empleado
+U000025,Aurora Gaya-Roig,Recursos Humanos,Bilbao,Empleado
+U000026,Roberto Laguna Galván,Operaciones,Sevilla,Empleado
+U000027,Sabina de Serna,Legal,Valencia,Empleado
+U000028,Luna Agustí,Marketing,Valencia,Empleado
+U000029,Jeremías Aranda,Comercial,Barcelona,Empleado
+U000030,Josefa Heras Ribas,TI,Barcelona,Empleado
+U000031,Nereida Gallo-Arias,Direccion,Bilbao,Empleado
+U000032,Rosario Amores Patiño,Comercial,Bilbao,Empleado
+U000033,Ceferino Exposito Valencia,Comercial,Bilbao,Empleado
+U000034,Yaiza Eulalia Fonseca Gallardo,Direccion,Barcelona,Becario
+U000035,Amarilis Luque Villaverde,Marketing,Valencia,Empleado
+U000036,Aarón Arroyo,Operaciones,Madrid,Empleado
+U000037,Adelardo Priego Carlos,Comercial,Barcelona,Empleado
+U000038,Gabriela Pol Frías,Direccion,Barcelona,Empleado
+U000039,Salomé Arenas Flor,Comercial,Madrid,Becario
+U000040,Úrsula Artigas,Direccion,Barcelona,Empleado
+U000041,Viviana Agustín Juliá,TI,Barcelona,Empleado
+U000042,Loida Huertas Garmendia,Finanzas,Valencia,Empleado
+U000043,Inmaculada Cabanillas Cuadrado,Direccion,Barcelona,Empleado
+U000044,Ruben de Patiño,Recursos Humanos,Sevilla,Empleado
+U000045,Lorenza Rovira,Finanzas,Bilbao,Empleado
+U000046,Olalla Alegria Barranco,Direccion,Bilbao,Empleado
+U000047,Nando Busquets,Legal,Bilbao,Becario
+U000048,Rogelio Escalona,Direccion,Barcelona,Empleado
+U000049,Alba Almansa Company,Marketing,Bilbao,Empleado
+U000050,Ezequiel Carrillo Lasa,Direccion,Madrid,Directivo
