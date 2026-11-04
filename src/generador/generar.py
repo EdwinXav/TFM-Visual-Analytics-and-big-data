@@ -4,6 +4,7 @@ Produce, para cada tamaño (nº de tickets), una carpeta ``<salida>/n<tamaño>/`
 
 - ``usuarios.csv``, ``inventario.csv``, ``tickets.csv``: fuentes del pipeline.
 - ``anomalias_inyectadas.csv``: verdad de referencia con cada anomalía inyectada.
+- ``_LISTO``: marcador que se escribe al final; indica al DAG que el conjunto está completo.
 
 Todo es reproducible: misma configuración y semilla -> ficheros idénticos.
 
@@ -15,8 +16,10 @@ Uso:
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -33,6 +36,7 @@ CAMPOS_TICKETS = ["ticket_id", "fecha_apertura", "fecha_cierre", "categoria", "p
 CAMPOS_INVENTARIO = ["equipo_id", "tipo", "marca", "modelo", "fecha_adquisicion",
                      "fecha_fin_garantia", "estado", "ubicacion", "usuario_id"]
 CAMPOS_USUARIOS = ["usuario_id", "nombre", "departamento", "ubicacion", "rol"]
+MARCADOR_LISTO = "_LISTO"
 CAMPOS_REGISTRO = ["anomalia_id", "familia", "tabla", "clave", "campo",
                    "valor_original", "valor_inyectado"]
 
@@ -246,6 +250,7 @@ def _formatear(df: pd.DataFrame, columnas_fecha: dict) -> pd.DataFrame:
 
 def escribir(carpeta: Path, usuarios, inventario, tickets, registro) -> None:
     carpeta.mkdir(parents=True, exist_ok=True)
+    (carpeta / MARCADOR_LISTO).unlink(missing_ok=True)  # el conjunto deja de estar listo mientras se reescribe
     opciones = dict(index=False, encoding="utf-8", lineterminator="\n")
     usuarios[CAMPOS_USUARIOS].to_csv(carpeta / "usuarios.csv", **opciones)
     _formatear(inventario, {"fecha_adquisicion": FORMATO_FECHA, "fecha_fin_garantia": FORMATO_FECHA})[
@@ -253,6 +258,12 @@ def escribir(carpeta: Path, usuarios, inventario, tickets, registro) -> None:
     _formatear(tickets, {"fecha_apertura": FORMATO_FECHA_HORA, "fecha_cierre": FORMATO_FECHA_HORA})[
         CAMPOS_TICKETS].to_csv(carpeta / "tickets.csv", **opciones)
     registro[CAMPOS_REGISTRO].to_csv(carpeta / "anomalias_inyectadas.csv", **opciones)
+    # El marcador se escribe el último: si existe, todos los ficheros están completos
+    (carpeta / MARCADOR_LISTO).write_text(json.dumps({
+        "tickets": len(tickets),
+        "ficheros": ["usuarios.csv", "inventario.csv", "tickets.csv", "anomalias_inyectadas.csv"],
+        "escrito_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }), encoding="utf-8")
 
 
 def generar(cfg: dict, n_tickets: int, salida: Path, semilla: int | None = None) -> Path:

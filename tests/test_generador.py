@@ -142,3 +142,13 @@ def test_no_hay_fechas_fuera_de_periodo(conjunto):
     ap = pd.to_datetime(d["tickets"]["fecha_apertura"])
     assert ap.min() >= pd.Timestamp(CONFIG["periodo"]["inicio"])
     assert ap.max() <= pd.Timestamp(CONFIG["periodo"]["fin"]) + pd.Timedelta(days=1)
+
+
+def test_marcador_listo(conjunto):
+    """El DAG solo procesa un conjunto cuando existe el marcador, escrito al final."""
+    import json
+    carpeta, d = conjunto
+    marcador = carpeta / "_LISTO"
+    assert marcador.is_file()
+    assert json.loads(marcador.read_text(encoding="utf-8"))["tickets"] == len(d["tickets"])
+    assert all(marcador.stat().st_mtime >= (carpeta / f).stat().st_mtime for f in FICHEROS)

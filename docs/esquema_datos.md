@@ -39,6 +39,9 @@ Datos 100 % simulados (ver `src/generador/config.yaml`), generados con `src/gene
 | usuario_id | string | sí | FK → usuarios |
 | tecnico | string `T01`… | sí | T01..T{num_tecnicos} |
 
+### _LISTO
+Marcador JSON que el generador escribe al terminar (nº de tickets, ficheros y hora UTC). El DAG no procesa el conjunto hasta que existe.
+
 ### anomalias_inyectadas.csv (verdad de referencia, no se usa en el pipeline)
 | Campo | Descripción |
 |---|---|

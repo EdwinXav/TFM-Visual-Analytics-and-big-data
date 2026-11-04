@@ -31,7 +31,7 @@ Entregas: **E2 9/11/2026** (generador + pipeline Spark + DAG básico; caps. 3–
 - [x] DAG básico `pipeline_tfm` (comprobar_entrada → curar → analitica) ejecutado con éxito.
 
 ## Iteración 3 · Orquestación (27 oct–14 nov) — objetivo 2
-- [ ] DAG del pipeline con sensor de llegada de ficheros, dependencias y reintentos.
+- [x] DAG del pipeline con sensor de llegada de ficheros (marcador `_LISTO` del generador, modo reschedule), dependencias y reintentos.
 - [ ] Programación periódica y registro de marcas de tiempo (llegada → capa analítica).
 - [ ] Documentar cómo lanzar y qué logs revisar.
 
