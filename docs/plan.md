@@ -32,7 +32,8 @@ Entregas: **E2 9/11/2026** (generador + pipeline Spark + DAG básico; caps. 3–
 
 ## Iteración 3 · Orquestación (27 oct–14 nov) — objetivo 2
 - [x] DAG del pipeline con sensor de llegada de ficheros (marcador `_LISTO` del generador, modo reschedule), dependencias y reintentos.
-- [ ] Programación periódica y registro de marcas de tiempo (llegada → capa analítica).
+- [x] Programación periódica diaria (06:00 UTC), sin reprocesar datos ya tratados (`_PROCESADO`) y con `forzar` para repetir ejecuciones.
+- [ ] Registro de marcas de tiempo (llegada → capa analítica).
 - [ ] Documentar cómo lanzar y qué logs revisar.
 
 **E2 (~principios de noviembre):** capítulos 4 y 5 avanzados, resultados en esquema.

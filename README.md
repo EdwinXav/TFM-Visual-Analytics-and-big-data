@@ -19,6 +19,14 @@ Comprobación del entorno (Spark dentro de Airflow):
 docker compose exec airflow-scheduler airflow dags test prueba_entorno
 ```
 
+## Ejecutar el pipeline
+El DAG `pipeline_tfm` está programado cada día a las 06:00 UTC (hay que activarlo en la interfaz, porque se crea en pausa). Espera a que llegue un conjunto completo sin procesar; si no llega ninguno en 6 horas, la ejecución se omite.
+
+Para lanzarlo a mano (`forzar` repite el proceso sobre los mismos datos):
+```bash
+docker compose exec airflow-scheduler airflow dags trigger pipeline_tfm --conf '{"n": 100000, "forzar": true}'
+```
+
 ## Estructura
 - `src/generador/` generación de datos simulados · `src/pipeline/` jobs de Spark · `dags/` DAGs de Airflow · `docker/` imagen
 - `data/` capas raw · curated · quarantine · analytics
