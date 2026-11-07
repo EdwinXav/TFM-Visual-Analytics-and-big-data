@@ -47,6 +47,7 @@ def pipeline_tfm():
             return PokeReturnValue(is_done=False)
         return PokeReturnValue(is_done=True, xcom_value={
             "n": n,
+            "forzado": bool(get_current_context()["params"]["forzar"]),
             "llegada_utc": hora_llegada(carpeta),
             "detectado_utc": datetime.now(timezone.utc).isoformat(timespec="milliseconds"),
         })
@@ -67,14 +68,28 @@ def pipeline_tfm():
         return ejecutar(entrada["n"], etapas=["analitica"], run_id=run_id)["analitica"]
 
     @task
-    def marcar_procesado(entrada: dict, _recuentos: dict) -> None:
+    def registrar_disponibilidad(entrada: dict, _recuentos: dict) -> dict:
+        """Mide la latencia hasta la capa analítica y los indicadores disponibles."""
+        from src.evaluacion.disponibilidad import guardar, medir
+        from src.pipeline.comun import base_dir, rutas
+
+        n, run_id = _contexto()
+        r = rutas(base_dir(), n)
+        fila = medir(run_id, n, entrada["llegada_utc"], entrada["detectado_utc"],
+                     r["analytics"] / "kpi_resumen.parquet", entrada["forzado"])
+        guardar(fila, r["tiempos"] / "escenario_A_disponibilidad.csv")
+        return fila
+
+    @task
+    def marcar_procesado(entrada: dict, _medida: dict) -> None:
         from src.pipeline.comun import base_dir, rutas
         from src.pipeline import entrada as control
 
         control.marcar_procesado(rutas(base_dir(), entrada["n"])["raw"], entrada["llegada_utc"])
 
     entrada = esperar_datos()
-    marcar_procesado(entrada, analitica(entrada, curar(entrada)))
+    recuentos = analitica(entrada, curar(entrada))
+    marcar_procesado(entrada, registrar_disponibilidad(entrada, recuentos))
 
 
 pipeline_tfm()
