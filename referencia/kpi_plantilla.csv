@@ -1,0 +1,49 @@
+kpi,dimension,categoria
+K1,total,total
+K2,total,total
+K3,total,total
+K4,total,total
+K5,total,total
+K4,prioridad,Critica
+K4,prioridad,Alta
+K4,prioridad,Media
+K4,prioridad,Baja
+K5,prioridad,Critica
+K5,prioridad,Alta
+K5,prioridad,Media
+K5,prioridad,Baja
+K6,estado,En uso
+K6,estado,En reparacion
+K6,estado,En stock
+K6,estado,Baja
+K7,total,total
+K8,total,total
+K9,modelo,Latitude 5440
+K9,modelo,Latitude 7440
+K9,modelo,OptiPlex 7010
+K9,modelo,P2423
+K9,modelo,EliteBook 840
+K9,modelo,ProBook 450
+K9,modelo,ProDesk 400
+K9,modelo,LaserJet M404
+K9,modelo,ThinkPad T14
+K9,modelo,ThinkPad E14
+K9,modelo,ThinkCentre M70
+K9,modelo,MacBook Air M2
+K9,modelo,iPhone 14
+K9,modelo,iPad 10
+K9,modelo,Galaxy A54
+K9,modelo,Galaxy Tab S9
+K10,departamento,Finanzas
+K10,departamento,Recursos Humanos
+K10,departamento,Comercial
+K10,departamento,Operaciones
+K10,departamento,Marketing
+K10,departamento,TI
+K10,departamento,Direccion
+K10,departamento,Legal
+K10,ubicacion,Madrid
+K10,ubicacion,Barcelona
+K10,ubicacion,Valencia
+K10,ubicacion,Sevilla
+K10,ubicacion,Bilbao

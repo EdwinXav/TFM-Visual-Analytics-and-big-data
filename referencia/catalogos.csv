@@ -1,0 +1,64 @@
+catalogo,valor
+prioridad,Baja
+prioridad,Media
+prioridad,Alta
+prioridad,Critica
+categoria,Hardware
+categoria,Software
+categoria,Red
+categoria,Acceso
+categoria,Otros
+estado_ticket,Abierto
+estado_ticket,En curso
+estado_ticket,Resuelto
+estado_ticket,Cerrado
+estado_equipo,En uso
+estado_equipo,En reparacion
+estado_equipo,En stock
+estado_equipo,Baja
+departamento,Finanzas
+departamento,Recursos Humanos
+departamento,Comercial
+departamento,Operaciones
+departamento,Marketing
+departamento,TI
+departamento,Direccion
+departamento,Legal
+ubicacion,Madrid
+ubicacion,Barcelona
+ubicacion,Valencia
+ubicacion,Sevilla
+ubicacion,Bilbao
+rol,Empleado
+rol,Responsable
+rol,Directivo
+rol,Tecnico
+rol,Becario
+tecnico,T01
+tecnico,T02
+tecnico,T03
+tecnico,T04
+tecnico,T05
+tecnico,T06
+tecnico,T07
+tecnico,T08
+tecnico,T09
+tecnico,T10
+tecnico,T11
+tecnico,T12
+modelo,Dell|Latitude 5440|Portatil
+modelo,Dell|Latitude 7440|Portatil
+modelo,Dell|OptiPlex 7010|Sobremesa
+modelo,Dell|P2423|Monitor
+modelo,HP|EliteBook 840|Portatil
+modelo,HP|ProBook 450|Portatil
+modelo,HP|ProDesk 400|Sobremesa
+modelo,HP|LaserJet M404|Impresora
+modelo,Lenovo|ThinkPad T14|Portatil
+modelo,Lenovo|ThinkPad E14|Portatil
+modelo,Lenovo|ThinkCentre M70|Sobremesa
+modelo,Apple|MacBook Air M2|Portatil
+modelo,Apple|iPhone 14|Movil
+modelo,Apple|iPad 10|Tablet
+modelo,Samsung|Galaxy A54|Movil
+modelo,Samsung|Galaxy Tab S9|Tablet
