@@ -1,6 +1,6 @@
 {
   "n": 10000,
-  "run_id": "manual__2026-11-07T1849056177590000",
+  "run_id": "prueba_escala_n10000",
   "tablas": {
     "usuarios": {
       "entrada": 500,

@@ -1,0 +1,42 @@
+{
+  "n": 1000,
+  "run_id": "prueba_escala_n1000",
+  "tablas": {
+    "usuarios": {
+      "entrada": 50,
+      "validos": 50,
+      "rechazados": 0,
+      "por_regla": {
+        "completitud": 0,
+        "validez": 0,
+        "consistencia_temporal": 0,
+        "unicidad": 0,
+        "integridad_referencial": 0
+      }
+    },
+    "inventario": {
+      "entrada": 66,
+      "validos": 65,
+      "rechazados": 1,
+      "por_regla": {
+        "completitud": 0,
+        "validez": 0,
+        "consistencia_temporal": 0,
+        "unicidad": 1,
+        "integridad_referencial": 0
+      }
+    },
+    "tickets": {
+      "entrada": 1000,
+      "validos": 960,
+      "rechazados": 40,
+      "por_regla": {
+        "completitud": 10,
+        "validez": 10,
+        "consistencia_temporal": 10,
+        "unicidad": 0,
+        "integridad_referencial": 10
+      }
+    }
+  }
+}

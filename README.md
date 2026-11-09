@@ -32,4 +32,4 @@ docker compose exec airflow-scheduler airflow dags trigger pipeline_tfm --conf '
 - `data/` capas raw · curated · quarantine · analytics
 - `dashboard/` Power BI · `referencia/` escenario B · `resultados/` métricas y capturas · `docs/` diseño y plan · `tests/`
 
-Documentación de diseño: `CONTEXTO.md`, `docs/esquema_datos.md`, `docs/indicadores.md`, `docs/validacion_sus.md`.
+Documentación de diseño: `CONTEXTO.md`, `docs/esquema_datos.md`, `docs/indicadores.md`, `docs/validacion_sus.md`, `docs/orquestacion.md`.
