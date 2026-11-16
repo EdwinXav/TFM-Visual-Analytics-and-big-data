@@ -19,3 +19,7 @@ data/quarantine/*
 # Ficheros temporales de Office / Power BI
 ~$*
 *.pbix.bak
+
+# Proyecto de Power BI (PBIP): caché de datos y ajustes locales
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

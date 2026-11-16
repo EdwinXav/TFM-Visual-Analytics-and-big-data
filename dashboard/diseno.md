@@ -66,7 +66,7 @@ Decisiones:
 - **Dos ubicaciones distintas.** La ubicación de los tickets es la del **usuario** (`dim_usuario[ubicacion]`, igual que K10 en Spark); la del parque es la del **equipo** (`dim_equipo[ubicacion]`). En los segmentadores se rotulan «Ubicación del usuario» y «Ubicación del equipo» para no confundirlas. No se crea una dimensión de ubicación compartida por el mismo problema de caminos ambiguos.
 - `categoria`, `prioridad`, `estado` y `tecnico` se quedan en la tabla de hechos (dimensiones degeneradas): son catálogos cortos y no justifican tablas propias. `dim_prioridad` existe solo para ordenar y para el plazo de SLA.
 - `dim_fecha` se marca como tabla de fechas (columna `fecha`). Columnas calculadas de presentación:
-  - `Mes = FORMAT(dim_fecha[fecha], "yyyy-MM")`
+  - `Año-Mes = FORMAT(dim_fecha[fecha], "yyyy-MM")` (no puede llamarse `Mes`: Power BI no distingue mayúsculas en los nombres y ya existe `mes`)
   - `Año-Trimestre = dim_fecha[anio] & "-T" & dim_fecha[trimestre]`
 - Se ocultan las claves (`*_key`, `*_id`) y las columnas que solo usan las medidas (`horas_resolucion`, `sla_horas`, `cumple_sla`, `abierto`, `activo`). Ordenación: `prioridad` por `dim_prioridad[orden]`.
 
@@ -201,7 +201,7 @@ Segmentadores sincronizados (páginas 1, 2 y 4): **periodo** (`dim_fecha[fecha]`
 
 ### Página 1 · Resumen
 - Tarjetas: K1 tickets abiertos en el periodo · K2 cerrados · K3 backlog · K4 MTTR · K5 % SLA.
-- Líneas: K1 y K2 por `Mes`.
+- Líneas: K1 y K2 por `Año-Mes`.
 - Barras horizontales: backlog por ubicación del usuario (ordenadas de mayor a menor).
 - Barras apiladas: tickets por categoría y prioridad.
 
@@ -285,12 +285,16 @@ Las respuestas correctas de cada tarea se anotan con el conjunto usado en la pru
 
 ## 6. Entregables y orden de construcción
 
+El dashboard se guarda como **proyecto de Power BI (PBIP)**: `dashboard/indicadores_ti.pbip`, con el modelo en `indicadores_ti.SemanticModel/model.bim` y el informe en `indicadores_ti.Report/`. A diferencia del `.pbix` (binario), son ficheros de texto: los cambios del modelo y de las medidas quedan visibles en el historial de git. La caché de datos (`.pbi/cache.abf`) no se versiona; al abrir el proyecto basta con pulsar *Actualizar*.
+
+Estado (15/11/2026): pasos 1–4 hechos sobre `n100000`. Las fechas `INT96` se leen correctamente, sin cambiar el pipeline. La verificación (`python -m src.evaluacion.verificar_dax --n 100000`) da 48/48 filas coincidentes, con diferencia máxima 0. La tabla de verificación se ha obtenido con una consulta DAX contra el modelo de Power BI Desktop. ***[Pendiente: el visual de tabla en la página «Verificación».]***
+
 1. Parámetros y consultas; comprobar tipos (fechas `INT96`, booleanos). → captura del modelo.
 2. Relaciones, tabla de fechas, columnas calculadas y ocultación.
 3. Medidas de la sección 3 en `_Medidas`, con carpetas de visualización (Volumen, Servicio, Parque, Relación, Calidad).
 4. Página de verificación y exportación de `resultados/datos/verificacion_dax_<Conjunto>.csv`: no se sigue hasta que todas las diferencias sean ~0.
 5. Páginas 1–5 y sincronización de segmentadores.
 6. Recorrido de las cinco tareas SUS por el autor (tiempo y clics) como ensayo.
-7. Guardar `dashboard/indicadores_ti.pbix` y capturas de cada página en `resultados/capturas/`.
+7. Guardar el proyecto (`dashboard/indicadores_ti.pbip`) y capturas de cada página en `resultados/capturas/`.
 
 Fuera de alcance: publicación en Power BI Service, actualización programada y seguridad a nivel de fila (entorno local, `CONTEXTO.md`).
