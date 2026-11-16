@@ -1,0 +1,18 @@
+{
+  "name": "TFM indicadores TI",
+  "dataColors": ["#0B3C78", "#2F6DB5", "#6FA3DC", "#B7D3F0", "#5C5C5C", "#A0A0A0", "#C8553D", "#E0A458"],
+  "foreground": "#252423",
+  "background": "#FFFFFF",
+  "tableAccent": "#2F6DB5",
+  "good": "#2F6DB5",
+  "neutral": "#A0A0A0",
+  "bad": "#C8553D",
+  "minimum": "#FFFFFF",
+  "center": "#B7D3F0",
+  "maximum": "#0B3C78",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#252423" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#252423" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 24, "color": "#0B3C78" }
+  }
+}
