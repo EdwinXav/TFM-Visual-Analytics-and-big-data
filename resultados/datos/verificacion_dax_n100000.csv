@@ -1,0 +1,49 @@
+kpi,indicador,dimension,categoria,Valor Spark,Valor DAX,Diferencia
+"K5","% cumplimiento SLA","prioridad","Media",86.6862,86.6862,0.0000
+"K4","MTTR (horas)","prioridad","Critica",2.9616,2.9616,0.0000
+"K9","Tickets por equipo según modelo","modelo","ThinkPad T14",12.3571,12.3571,0.0000
+"K9","Tickets por equipo según modelo","modelo","iPad 10",13.1581,13.1581,0.0000
+"K5","% cumplimiento SLA","prioridad","Alta",81.8051,81.8051,0.0000
+"K9","Tickets por equipo según modelo","modelo","OptiPlex 7010",12.5370,12.5370,0.0000
+"K9","Tickets por equipo según modelo","modelo","iPhone 14",12.7566,12.7566,0.0000
+"K4","MTTR (horas)","prioridad","Baja",36.4491,36.4491,0.0000
+"K9","Tickets por equipo según modelo","modelo","MacBook Air M2",12.9566,12.9566,0.0000
+"K5","% cumplimiento SLA","prioridad","Baja",89.0633,89.0633,0.0000
+"K5","% cumplimiento SLA","total","total",85.8926,85.8926,0.0000
+"K4","MTTR (horas)","prioridad","Alta",5.3035,5.3035,0.0000
+"K9","Tickets por equipo según modelo","modelo","ProDesk 400",12.4728,12.4728,0.0000
+"K9","Tickets por equipo según modelo","modelo","Latitude 5440",12.5293,12.5293,0.0000
+"K7","Antigüedad media (años)","total","total",3.5653,3.5653,0.0000
+"K9","Tickets por equipo según modelo","modelo","ProBook 450",31.1650,31.1650,0.0000
+"K9","Tickets por equipo según modelo","modelo","LaserJet M404",13.2233,13.2233,0.0000
+"K9","Tickets por equipo según modelo","modelo","ThinkPad E14",12.6231,12.6231,0.0000
+"K4","MTTR (horas)","total","total",17.0855,17.0855,0.0000
+"K9","Tickets por equipo según modelo","modelo","EliteBook 840",12.7422,12.7422,0.0000
+"K5","% cumplimiento SLA","prioridad","Critica",78.3639,78.3639,0.0000
+"K9","Tickets por equipo según modelo","modelo","Galaxy Tab S9",13.3423,13.3423,0.0000
+"K9","Tickets por equipo según modelo","modelo","P2423",12.7221,12.7221,0.0000
+"K9","Tickets por equipo según modelo","modelo","Galaxy A54",27.2259,27.2259,0.0000
+"K9","Tickets por equipo según modelo","modelo","Latitude 7440",12.6658,12.6658,0.0000
+"K9","Tickets por equipo según modelo","modelo","ThinkCentre M70",12.7353,12.7353,0.0000
+"K4","MTTR (horas)","prioridad","Media",13.5166,13.5166,0.0000
+"K10","Tickets por departamento","departamento","TI",11639.0000,11639.0000,0.0000
+"K8","Garantías vencidas","total","total",3550.0000,3550.0000,0.0000
+"K10","Tickets por departamento","departamento","Recursos Humanos",12612.0000,12612.0000,0.0000
+"K10","Tickets por departamento","departamento","Operaciones",11420.0000,11420.0000,0.0000
+"K10","Tickets por departamento","departamento","Marketing",11727.0000,11727.0000,0.0000
+"K1","Tickets abiertos en el periodo","total","total",96000.0000,96000.0000,0.0000
+"K10","Tickets por departamento","departamento","Legal",11381.0000,11381.0000,0.0000
+"K10","Tickets por departamento","departamento","Finanzas",12683.0000,12683.0000,0.0000
+"K10","Tickets por departamento","departamento","Direccion",11831.0000,11831.0000,0.0000
+"K10","Tickets por departamento","departamento","Comercial",12707.0000,12707.0000,0.0000
+"K3","Backlog al corte","total","total",5806.0000,5806.0000,0.0000
+"K2","Tickets cerrados en el periodo","total","total",90194.0000,90194.0000,0.0000
+"K10","Tickets por ubicación","ubicacion","Valencia",19812.0000,19812.0000,0.0000
+"K10","Tickets por ubicación","ubicacion","Sevilla",18498.0000,18498.0000,0.0000
+"K10","Tickets por ubicación","ubicacion","Madrid",18867.0000,18867.0000,0.0000
+"K10","Tickets por ubicación","ubicacion","Bilbao",19865.0000,19865.0000,0.0000
+"K10","Tickets por ubicación","ubicacion","Barcelona",18958.0000,18958.0000,0.0000
+"K6","Equipos por estado","estado","Baja",406.0000,406.0000,0.0000
+"K6","Equipos por estado","estado","En reparacion",273.0000,273.0000,0.0000
+"K6","Equipos por estado","estado","En stock",597.0000,597.0000,0.0000
+"K6","Equipos por estado","estado","En uso",5224.0000,5224.0000,0.0000
