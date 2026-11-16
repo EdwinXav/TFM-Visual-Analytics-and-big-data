@@ -11,7 +11,7 @@ import pytest
 
 pytest.importorskip("pyspark")
 
-from src.evaluacion.deteccion import evaluar  # noqa: E402
+from src.evaluacion.deteccion import evaluar, guardar  # noqa: E402
 from src.generador.generar import cargar_config, generar  # noqa: E402
 from src.pipeline.ejecutar import ejecutar  # noqa: E402
 
@@ -41,6 +41,17 @@ def test_deteccion_completa_sin_falsos_positivos(proyecto):
     assert ev["falsos_positivos"] == 0
     for familia, d in ev["por_familia"].items():
         assert d["tasa_deteccion"] == 1.0, familia
+
+
+def test_deteccion_se_guarda_en_csv(proyecto, tmp_path):
+    base, _, _ = proyecto
+    ev = evaluar(N, base)
+    df = pd.read_csv(guardar(ev, tmp_path))
+    assert set(df["familia"]) == set(ev["por_familia"]) | {"total"}
+    total = df.set_index("familia").loc["total"]
+    assert total["inyectadas"] == ev["inyectadas"] and total["tasa_deteccion"] == 1.0
+    assert df.loc[df["familia"] != "total", "inyectadas"].sum() == ev["inyectadas"]
+    assert (df.loc[df["familia"] != "total", "regla"] != "").all()
 
 
 def test_informe_de_calidad_cuadra(proyecto):

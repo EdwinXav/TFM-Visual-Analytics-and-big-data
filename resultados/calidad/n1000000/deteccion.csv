@@ -1,0 +1,7 @@
+familia,regla,inyectadas,detectadas,aciertos,falsos_positivos,tasa_deteccion
+duplicados,unicidad,650,650,650,0,1.0
+fechas_incoherentes,consistencia_temporal,10000,10000,10000,0,1.0
+fuera_de_catalogo,validez,10000,10000,10000,0,1.0
+huerfanos,integridad_referencial,10000,10000,10000,0,1.0
+nulos,completitud,10000,10000,10000,0,1.0
+total,total,40650,40650,40650,0,1.0

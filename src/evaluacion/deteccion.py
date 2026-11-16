@@ -2,6 +2,10 @@
 
 Uso:
     python -m src.evaluacion.deteccion --n 10000
+
+Además de imprimir el resultado, lo guarda en resultados/calidad/n<N>/deteccion.csv
+(una fila por familia y una fila «total»), que es la fuente de la tasa de detección
+en la página de calidad del dashboard.
 """
 
 from __future__ import annotations
@@ -61,11 +65,30 @@ def evaluar(n: int, base: Path | None = None) -> dict:
     return comparar(iny[["tabla", "clave", "familia"]], leer_cuarentena(r["quarantine"]))
 
 
+FAMILIA_A_REGLA = {f: r for r, f in REGLA_A_FAMILIA.items()}
+COLUMNAS_CSV = ["familia", "regla", "inyectadas", "detectadas", "aciertos", "falsos_positivos", "tasa_deteccion"]
+
+
+def guardar(ev: dict, carpeta: Path) -> Path:
+    """Escribe la evaluación en formato tabular (separador «,», punto decimal)."""
+    filas = [{"familia": fam, "regla": FAMILIA_A_REGLA.get(fam, ""), **d} for fam, d in ev["por_familia"].items()]
+    filas.append({"familia": "total", "regla": "total", "inyectadas": ev["inyectadas"],
+                  "detectadas": ev["aciertos"] + ev["falsos_positivos"], "aciertos": ev["aciertos"],
+                  "falsos_positivos": ev["falsos_positivos"], "tasa_deteccion": ev["tasa_deteccion"]})
+    carpeta.mkdir(parents=True, exist_ok=True)
+    ruta = carpeta / "deteccion.csv"
+    pd.DataFrame(filas, columns=COLUMNAS_CSV).to_csv(ruta, index=False, encoding="utf-8")
+    return ruta
+
+
 def main(argv=None) -> None:
     parser = argparse.ArgumentParser(description="Tasa de detección del escenario A.")
     parser.add_argument("--n", type=int, required=True)
     args = parser.parse_args(argv)
-    print(json.dumps(evaluar(args.n), ensure_ascii=False, indent=2))
+    ev = evaluar(args.n)
+    print(json.dumps(ev, ensure_ascii=False, indent=2))
+    ruta = guardar(ev, rutas(base_dir(), args.n)["calidad"])
+    print(f"Detección guardada en {ruta}")
 
 
 if __name__ == "__main__":
