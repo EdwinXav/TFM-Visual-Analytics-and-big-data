@@ -1,6 +1,6 @@
 {
   "n": 1000,
-  "run_id": "prueba_escala_n1000",
+  "run_id": "expA_r5_n1000",
   "tablas": {
     "usuarios": {
       "entrada": 50,

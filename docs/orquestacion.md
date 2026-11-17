@@ -37,6 +37,19 @@ docker compose exec airflow-scheduler airflow dags trigger pipeline_tfm --conf '
 docker compose exec airflow-scheduler airflow dags list-runs pipeline_tfm
 ```
 
+## Experimento del escenario A
+`src/evaluacion/escenario_a.py` lanza las repeticiones del experimento a través del scheduler. Por defecto hace 5 repeticiones de los 4 tamaños, con `forzar` sobre los mismos datos. Espera a que termine cada ejecución antes de lanzar la siguiente.
+
+```bash
+docker compose exec -w /opt/proyecto airflow-scheduler python -m src.evaluacion.escenario_a
+docker compose exec -w /opt/proyecto airflow-scheduler python -m src.evaluacion.escenario_a --solo-resumen
+```
+
+- **Orden:** los tamaños se alternan dentro de cada repetición, para que un cambio de carga del equipo no recaiga en un solo tamaño.
+- **Identificación:** los `run_id` son `expA_r<k>_n<N>`. Si se interrumpe, al relanzarlo se saltan las ejecuciones ya completadas.
+- **Si el DAG está en pausa:** el script lo reactiva y lo deja en pausa al terminar. Al reactivarlo, Airflow crea la ejecución programada pendiente (con n = 10000). Para que no espere datos nuevos durante 6 horas y bloquee el experimento, el script retira antes `data/raw/n10000/_PROCESADO`. Así esa ejecución procesa el conjunto como una llegada normal.
+- **Salidas en `resultados/tiempos/`:** `escenario_A_experimento.csv` (una fila por ejecución: duración en Airflow, tiempo de Spark por etapa y latencia) y `escenario_A_resumen.csv` (media, desviación típica, mínimo y máximo por tamaño).
+
 ## Qué revisar
 | Qué | Dónde |
 |---|---|
