@@ -1,0 +1,35 @@
+table calidad_resumen
+	lineageTag: 8af19fda-3b75-4729-a094-87b84b06f0a2
+
+	column tabla
+		dataType: string
+		lineageTag: e4c4ff49-0521-49eb-a240-5d35fafc1f20
+		summarizeBy: none
+		sourceColumn: tabla
+
+	column regla
+		dataType: string
+		lineageTag: b8d8bc76-3405-48ca-9ddb-80cc7e9c7888
+		summarizeBy: none
+		sourceColumn: regla
+
+	column registros
+		dataType: int64
+		lineageTag: a285de07-f3ab-4d3f-a716-df200107ceaa
+		summarizeBy: none
+		sourceColumn: registros
+
+	column entrada
+		dataType: int64
+		lineageTag: 45d3fb32-2b0f-4a5c-a78b-7a7868983e8b
+		summarizeBy: none
+		sourceColumn: entrada
+
+	partition calidad_resumen = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaProyecto & "data\analytics\" & Conjunto & "\calidad_resumen.parquet"))
+				in
+				    Origen
+

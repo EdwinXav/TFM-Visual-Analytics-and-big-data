@@ -1,0 +1,68 @@
+table dim_fecha
+	lineageTag: 34220e59-a982-406b-83dc-3581c3d0bb53
+	dataCategory: Time
+
+	column fecha_key
+		dataType: int64
+		isHidden
+		lineageTag: 9eb9f766-bbed-4841-9301-88a61037e941
+		summarizeBy: none
+		sourceColumn: fecha_key
+
+	column fecha
+		dataType: dateTime
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 5e4dba58-546c-4c5f-8ea3-fff3646bca60
+		summarizeBy: none
+		sourceColumn: fecha
+
+	column anio
+		dataType: int64
+		lineageTag: 27d73fc9-4b11-4be1-a593-ffe97b9b5c32
+		summarizeBy: none
+		sourceColumn: anio
+
+	column trimestre
+		dataType: int64
+		lineageTag: 94ad741b-42a0-4c36-b8c6-54bfca70f6e0
+		summarizeBy: none
+		sourceColumn: trimestre
+
+	column mes
+		dataType: int64
+		lineageTag: 1e1478ad-fb4a-4a17-aca5-e407e9c9379f
+		summarizeBy: none
+		sourceColumn: mes
+
+	column semana
+		dataType: int64
+		lineageTag: 0e8fe69f-8b9e-4d87-8d4b-cb6a3f9e67fb
+		summarizeBy: none
+		sourceColumn: semana
+
+	column dia_semana
+		dataType: int64
+		lineageTag: 1c337ee8-e039-4714-9d48-c471285dc937
+		summarizeBy: none
+		sourceColumn: dia_semana
+
+	column Año-Mes = FORMAT ( dim_fecha[fecha], "yyyy-MM" )
+		dataType: string
+		lineageTag: a6e15892-d445-4943-a29e-61ceca45112e
+		summarizeBy: none
+
+	column Año-Trimestre = dim_fecha[anio] & "-T" & dim_fecha[trimestre]
+		dataType: string
+		lineageTag: b785a7e5-41a9-4998-b0d9-8cba44005ccd
+		summarizeBy: none
+
+	partition dim_fecha = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaProyecto & "data\analytics\" & Conjunto & "\dim_fecha.parquet")),
+				    Tipos = Table.TransformColumnTypes(Origen, {{"fecha_key", Int64.Type}, {"fecha", type date}, {"anio", Int64.Type}, {"trimestre", Int64.Type}, {"mes", Int64.Type}, {"semana", Int64.Type}, {"dia_semana", Int64.Type}})
+				in
+				    Tipos
+

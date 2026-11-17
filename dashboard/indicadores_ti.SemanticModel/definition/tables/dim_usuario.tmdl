@@ -1,0 +1,36 @@
+table dim_usuario
+	lineageTag: 6c065632-d827-4a47-95e3-5d4c2699e20c
+
+	column usuario_id
+		dataType: string
+		isHidden
+		lineageTag: 6e987c05-306e-419d-98f6-9989b7ed1f69
+		summarizeBy: none
+		sourceColumn: usuario_id
+
+	column departamento
+		dataType: string
+		lineageTag: 4b75c1f7-3caf-4d82-9d94-65fb2ea88015
+		summarizeBy: none
+		sourceColumn: departamento
+
+	column ubicacion
+		dataType: string
+		lineageTag: bb6887f6-b9e6-4e10-8f05-d87e59317d7e
+		summarizeBy: none
+		sourceColumn: ubicacion
+
+	column rol
+		dataType: string
+		lineageTag: bac32412-3092-4a2c-9499-c09f6d9d4096
+		summarizeBy: none
+		sourceColumn: rol
+
+	partition dim_usuario = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaProyecto & "data\analytics\" & Conjunto & "\dim_usuario.parquet"))
+				in
+				    Origen
+

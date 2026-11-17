@@ -1,0 +1,113 @@
+table fact_tickets
+	lineageTag: d00c4ccd-0561-4a36-bde0-5b905afed3d7
+
+	column ticket_id
+		dataType: string
+		lineageTag: 8ae19ead-0ccc-4022-9fc5-421b38ebd50b
+		summarizeBy: none
+		sourceColumn: ticket_id
+
+	column fecha_apertura
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn:ss
+		lineageTag: 322df20a-762a-4900-b7a7-6f5ff210f5c7
+		summarizeBy: none
+		sourceColumn: fecha_apertura
+
+	column fecha_cierre
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn:ss
+		lineageTag: 1f5d6299-8fc1-4d1a-99dc-7a04f08df46b
+		summarizeBy: none
+		sourceColumn: fecha_cierre
+
+	column fecha_apertura_key
+		dataType: int64
+		isHidden
+		lineageTag: 670e4d70-e6e3-46c9-aa7b-1726883a8983
+		summarizeBy: none
+		sourceColumn: fecha_apertura_key
+
+	column fecha_cierre_key
+		dataType: int64
+		isHidden
+		lineageTag: 95c700d3-8adf-4040-ab3d-98c91643c4bd
+		summarizeBy: none
+		sourceColumn: fecha_cierre_key
+
+	column equipo_id
+		dataType: string
+		isHidden
+		lineageTag: 5d3c9c57-29b1-476d-82a8-28d94c0b5710
+		summarizeBy: none
+		sourceColumn: equipo_id
+
+	column usuario_id
+		dataType: string
+		isHidden
+		lineageTag: c90b11bb-4c03-4cf0-a009-93c8e27410d1
+		summarizeBy: none
+		sourceColumn: usuario_id
+
+	column categoria
+		dataType: string
+		lineageTag: f1cb4c7c-7da5-40bd-be35-d4861b3786cf
+		summarizeBy: none
+		sourceColumn: categoria
+
+	column prioridad
+		dataType: string
+		isHidden
+		lineageTag: b09c99de-3bc4-4538-b9c0-b3fd9f7d98eb
+		summarizeBy: none
+		sourceColumn: prioridad
+
+	column estado
+		dataType: string
+		lineageTag: d47dab54-5237-477f-9512-d3d78c579e77
+		summarizeBy: none
+		sourceColumn: estado
+
+	column tecnico
+		dataType: string
+		lineageTag: 7e7f4cf5-a98d-491e-adf9-4caf3eadda73
+		summarizeBy: none
+		sourceColumn: tecnico
+
+	column horas_resolucion
+		dataType: double
+		isHidden
+		lineageTag: c7aa87a4-183f-46cc-be04-f512ec41e0d2
+		summarizeBy: none
+		sourceColumn: horas_resolucion
+
+	column sla_horas
+		dataType: double
+		isHidden
+		lineageTag: b11c5914-626f-4c1c-80ba-dbb627cc48bc
+		summarizeBy: none
+		sourceColumn: sla_horas
+
+	column abierto
+		dataType: boolean
+		isHidden
+		lineageTag: 155b6ec5-b10e-4eca-a4ac-a6d001003d8e
+		summarizeBy: none
+		sourceColumn: abierto
+
+	column cumple_sla
+		dataType: boolean
+		isHidden
+		lineageTag: 0cfdd0fd-277e-47a1-9d66-879c26fc94b7
+		summarizeBy: none
+		sourceColumn: cumple_sla
+
+	partition fact_tickets = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaProyecto & "data\analytics\" & Conjunto & "\fact_tickets.parquet")),
+				    Tipos = Table.TransformColumnTypes(Origen, {{"fecha_apertura", type datetime}, {"fecha_cierre", type datetime}, {"fecha_apertura_key", Int64.Type}, {"fecha_cierre_key", Int64.Type}, {"horas_resolucion", type number}, {"sla_horas", type number}, {"abierto", type logical}, {"cumple_sla", type logical}})
+				in
+				    Tipos
+

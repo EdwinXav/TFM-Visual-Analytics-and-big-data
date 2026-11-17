@@ -1,0 +1,187 @@
+table _Medidas
+	lineageTag: 8118b3df-01a4-4c77-8b4c-1496a9091453
+
+	measure 'Tickets abiertos' = COUNTROWS ( fact_tickets )
+		formatString: #,0
+		displayFolder: Volumen
+		lineageTag: 5ec4e166-e5d4-437b-9736-de7af6b4b651
+
+	measure 'Tickets cerrados' =
+			CALCULATE (
+			    COUNTROWS ( fact_tickets ),
+			    fact_tickets[abierto] = FALSE (),
+			    USERELATIONSHIP ( dim_fecha[fecha_key], fact_tickets[fecha_cierre_key] )
+			)
+		formatString: #,0
+		displayFolder: Volumen
+		lineageTag: 1b510529-1d01-4ca3-b71c-bc14b3cf002a
+
+	measure 'Fecha de corte' = MAX ( dim_fecha[fecha] )
+		formatString: dd/mm/yyyy
+		displayFolder: Volumen
+		lineageTag: ba1d5a5f-c9b3-4cab-9850-4f65e3a74632
+
+	measure Backlog =
+			VAR fin = [Fecha de corte] + 1
+			RETURN
+			    CALCULATE (
+			        COUNTROWS ( fact_tickets ),
+			        REMOVEFILTERS ( dim_fecha ),
+			        fact_tickets[fecha_apertura] < fin,
+			        OR ( ISBLANK ( fact_tickets[fecha_cierre] ), fact_tickets[fecha_cierre] >= fin )
+			    )
+		formatString: #,0
+		displayFolder: Volumen
+		lineageTag: 03525956-6464-4699-b883-059eaec67dbb
+
+	measure 'MTTR (h)' =
+			CALCULATE (
+			    AVERAGE ( fact_tickets[horas_resolucion] ),
+			    fact_tickets[abierto] = FALSE (),
+			    USERELATIONSHIP ( dim_fecha[fecha_key], fact_tickets[fecha_cierre_key] )
+			)
+		formatString: #,0.00
+		displayFolder: Servicio
+		lineageTag: b61d9d51-2daf-4705-8d38-1d86cd41710f
+
+	measure 'Cerrados en SLA' = CALCULATE ( [Tickets cerrados], fact_tickets[cumple_sla] = TRUE () )
+		formatString: #,0
+		displayFolder: Servicio
+		lineageTag: 708d5cbf-6fee-494d-93db-09d00cb17634
+
+	measure '% cumplimiento SLA' = DIVIDE ( [Cerrados en SLA], [Tickets cerrados] )
+		formatString: 0.0%
+		displayFolder: Servicio
+		lineageTag: ba7ad182-9076-4df1-a728-6510f99a3fcd
+
+	measure Equipos = COUNTROWS ( dim_equipo )
+		formatString: #,0
+		displayFolder: Parque
+		lineageTag: 32423d7f-061f-4924-b67f-b4eba12407d1
+
+	measure 'Equipos activos' = CALCULATE ( COUNTROWS ( dim_equipo ), dim_equipo[activo] = TRUE () )
+		formatString: #,0
+		displayFolder: Parque
+		lineageTag: dfab401d-2c64-4019-b770-3c6b447f796e
+
+	measure 'Antigüedad media (años)' = CALCULATE ( AVERAGE ( dim_equipo[antiguedad_anios] ), dim_equipo[activo] = TRUE () )
+		formatString: #,0.00
+		displayFolder: Parque
+		lineageTag: f5ae6436-4cb9-4fc4-92e2-55adb1e6fc4b
+
+	measure 'Garantías vencidas' =
+			CALCULATE (
+			    COUNTROWS ( dim_equipo ),
+			    dim_equipo[activo] = TRUE (),
+			    dim_equipo[garantia_vencida] = TRUE ()
+			)
+		formatString: #,0
+		displayFolder: Parque
+		lineageTag: 886d5f9b-e9a2-43d7-a62d-a2ffb10c1ed2
+
+	measure '% garantías vencidas' = DIVIDE ( [Garantías vencidas], [Equipos activos] )
+		formatString: 0.0%
+		displayFolder: Parque
+		lineageTag: 82376b94-c7bd-45e1-a078-8e5d9e177314
+
+	measure 'Tickets por equipo' = DIVIDE ( [Tickets abiertos], [Equipos] )
+		formatString: #,0.00
+		displayFolder: Relación
+		lineageTag: 773d5810-4858-49ee-aaf5-880ab3e72e0e
+
+	measure 'Registros de entrada' = SUMX ( VALUES ( calidad_resumen[tabla] ), CALCULATE ( MAX ( calidad_resumen[entrada] ) ) )
+		formatString: #,0
+		displayFolder: Calidad
+		lineageTag: b714423d-6bef-4437-bbfb-b6b71ef5ce39
+
+	measure Incumplimientos = SUM ( calidad_resumen[registros] )
+		formatString: #,0
+		displayFolder: Calidad
+		lineageTag: 5e0582aa-9d96-4a12-9784-56b33d24608b
+
+	measure 'Registros válidos' =
+			SUMX (
+			    VALUES ( calidad_resumen[tabla] ),
+			    SWITCH (
+			        calidad_resumen[tabla],
+			        "tickets",    COUNTROWS ( fact_tickets ),
+			        "inventario", COUNTROWS ( dim_equipo ),
+			        "usuarios",   COUNTROWS ( dim_usuario )
+			    )
+			)
+		formatString: #,0
+		displayFolder: Calidad
+		lineageTag: cd6a3f26-5c76-4e5b-a01a-1efc6117e74b
+
+	measure 'Registros rechazados' = [Registros de entrada] - [Registros válidos]
+		formatString: #,0
+		displayFolder: Calidad
+		lineageTag: 0f4f5695-c8b9-4438-a569-69f37278339e
+
+	measure '% rechazados' = DIVIDE ( [Registros rechazados], [Registros de entrada] )
+		formatString: 0.00%
+		displayFolder: Calidad
+		lineageTag: ed6eeacc-07f5-4d1e-ad94-e0e14f460f61
+
+	measure 'Tasa de detección' = CALCULATE ( MAX ( deteccion[tasa_deteccion] ), deteccion[familia] = "total" )
+		formatString: 0.0%
+		displayFolder: Calidad
+		lineageTag: e50b37ed-fb8e-4881-b12c-a30de2db9ef8
+
+	measure 'Valor DAX' =
+			VAR k = SELECTEDVALUE ( kpi_resumen[kpi] )
+			VAR d = SELECTEDVALUE ( kpi_resumen[dimension] )
+			VAR c = SELECTEDVALUE ( kpi_resumen[categoria] )
+			RETURN
+			    SWITCH (
+			        d,
+			        "total",
+			            SWITCH (
+			                k,
+			                "K1", [Tickets abiertos],
+			                "K2", [Tickets cerrados],
+			                "K3", [Backlog],
+			                "K4", [MTTR (h)],
+			                "K5", [% cumplimiento SLA] * 100,
+			                "K7", [Antigüedad media (años)],
+			                "K8", [Garantías vencidas]
+			            ),
+			        "prioridad",
+			            CALCULATE (
+			                SWITCH ( k, "K4", [MTTR (h)], "K5", [% cumplimiento SLA] * 100 ),
+			                TREATAS ( { c }, dim_prioridad[prioridad] )
+			            ),
+			        "estado",       CALCULATE ( [Equipos], TREATAS ( { c }, dim_equipo[estado] ) ),
+			        "modelo",       CALCULATE ( [Tickets por equipo], TREATAS ( { c }, dim_equipo[modelo] ) ),
+			        "departamento", CALCULATE ( [Tickets abiertos], TREATAS ( { c }, dim_usuario[departamento] ) ),
+			        "ubicacion",    CALCULATE ( [Tickets abiertos], TREATAS ( { c }, dim_usuario[ubicacion] ) )
+			    )
+		formatString: 0.0000
+		displayFolder: Verificación
+		lineageTag: 776567c7-a154-415c-ae06-984ac253781c
+
+	measure 'Valor Spark' = SUM ( kpi_resumen[valor] )
+		formatString: 0.0000
+		displayFolder: Verificación
+		lineageTag: bfdf9571-36f0-4afc-aa15-5b58ac668622
+
+	measure Diferencia = ABS ( [Valor DAX] - [Valor Spark] )
+		formatString: 0.0000
+		displayFolder: Verificación
+		lineageTag: a6c1e4e7-c9d0-4cc2-a707-2100891f5c69
+
+	column auxiliar
+		dataType: string
+		isHidden
+		lineageTag: 0c78f39b-726c-45ca-b03a-ec8ecb31c6da
+		summarizeBy: none
+		sourceColumn: auxiliar
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				    Origen = #table(type table [auxiliar = text], {})
+				in
+				    Origen
+

@@ -1,0 +1,25 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: es-EC
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fact_tickets
+ref table dim_equipo
+ref table dim_usuario
+ref table dim_fecha
+ref table dim_prioridad
+ref table calidad_resumen
+ref table deteccion
+ref table kpi_resumen
+ref table _Medidas
+
+ref cultureInfo es-ES
+

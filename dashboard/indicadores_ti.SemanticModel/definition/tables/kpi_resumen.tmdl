@@ -1,0 +1,42 @@
+table kpi_resumen
+	lineageTag: 1b15e62f-0a23-4b0d-b3ba-d756dd28deb1
+
+	column kpi
+		dataType: string
+		lineageTag: e1667f4a-2ef6-4235-a845-7a44a87e104f
+		summarizeBy: none
+		sourceColumn: kpi
+
+	column indicador
+		dataType: string
+		lineageTag: 29aece8c-7aa0-48e8-b1aa-7504104b4204
+		summarizeBy: none
+		sourceColumn: indicador
+
+	column dimension
+		dataType: string
+		lineageTag: a7a8ff13-b4d5-49ef-8a14-6c7373eef96d
+		summarizeBy: none
+		sourceColumn: dimension
+
+	column categoria
+		dataType: string
+		lineageTag: 5a9228b0-3de8-49e9-bae5-72bad72ccd52
+		summarizeBy: none
+		sourceColumn: categoria
+
+	column valor
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 39fbd2d2-c6ee-494d-ab13-db28b1a1b4a9
+		summarizeBy: none
+		sourceColumn: valor
+
+	partition kpi_resumen = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaProyecto & "data\analytics\" & Conjunto & "\kpi_resumen.parquet"))
+				in
+				    Origen
+

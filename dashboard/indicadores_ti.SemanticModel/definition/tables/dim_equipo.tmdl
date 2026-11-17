@@ -1,0 +1,91 @@
+table dim_equipo
+	lineageTag: 55da2c30-bd08-439f-a173-56cfd8da82d1
+
+	column equipo_id
+		dataType: string
+		isHidden
+		lineageTag: 53a85233-6146-405f-aa00-8238b0472286
+		summarizeBy: none
+		sourceColumn: equipo_id
+
+	column tipo
+		dataType: string
+		lineageTag: ffb97ff5-a021-495d-aafe-164e3f0a9630
+		summarizeBy: none
+		sourceColumn: tipo
+
+	column marca
+		dataType: string
+		lineageTag: 9599e584-c986-48f4-955a-7362b4832924
+		summarizeBy: none
+		sourceColumn: marca
+
+	column modelo
+		dataType: string
+		lineageTag: 134a7ec7-629f-4645-a95c-dab456f25a7a
+		summarizeBy: none
+		sourceColumn: modelo
+
+	column fecha_adquisicion
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 059a8b60-66b8-4404-9fe5-a6d671baf4c9
+		summarizeBy: none
+		sourceColumn: fecha_adquisicion
+
+	column fecha_fin_garantia
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: f590e2a3-4ee2-413e-8ded-5476efde58df
+		summarizeBy: none
+		sourceColumn: fecha_fin_garantia
+
+	column estado
+		dataType: string
+		lineageTag: 7087ec2e-356a-4ad4-99e3-5764e293cd66
+		summarizeBy: none
+		sourceColumn: estado
+
+	column ubicacion
+		dataType: string
+		lineageTag: 28d200f0-2320-4536-b824-ad008754e1d2
+		summarizeBy: none
+		sourceColumn: ubicacion
+
+	column usuario_id
+		dataType: string
+		isHidden
+		lineageTag: 29829b75-665e-4b6f-bed5-2282243e753e
+		summarizeBy: none
+		sourceColumn: usuario_id
+
+	column antiguedad_anios
+		dataType: double
+		isHidden
+		lineageTag: 5a57b20e-8cc9-4132-856a-3675736e82f5
+		summarizeBy: none
+		sourceColumn: antiguedad_anios
+
+	column garantia_vencida
+		dataType: boolean
+		isHidden
+		lineageTag: 06642946-fd5e-4afa-aa72-c46ce29520d0
+		summarizeBy: none
+		sourceColumn: garantia_vencida
+
+	column activo
+		dataType: boolean
+		isHidden
+		lineageTag: 248214f9-b25b-424b-9bca-0d2228605581
+		summarizeBy: none
+		sourceColumn: activo
+
+	partition dim_equipo = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaProyecto & "data\analytics\" & Conjunto & "\dim_equipo.parquet")),
+				    Tipos = Table.TransformColumnTypes(Origen, {{"fecha_adquisicion", type date}, {"fecha_fin_garantia", type date}, {"antiguedad_anios", type number}, {"garantia_vencida", type logical}, {"activo", type logical}})
+				in
+				    Tipos
+

@@ -1,0 +1,6 @@
+expression RutaProyecto = "C:\Users\Usuario\Desktop\Maestria\TFM\tfm-arquitectura-datos\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 85ea0ae6-7f12-42c0-b39c-8cb16578c700
+
+expression Conjunto = "n100000" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 80f00467-2067-40e3-ba55-e919e8930938
+

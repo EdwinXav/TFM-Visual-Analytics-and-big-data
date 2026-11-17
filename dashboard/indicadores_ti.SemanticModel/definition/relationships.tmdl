@@ -1,0 +1,21 @@
+relationship 9f5eff0d-9a0b-5ce2-b2c8-f5f0fabadf81
+	fromColumn: fact_tickets.fecha_apertura_key
+	toColumn: dim_fecha.fecha_key
+
+relationship 2d2c0fb8-adb3-5291-8df1-63a110508373
+	isActive: false
+	fromColumn: fact_tickets.fecha_cierre_key
+	toColumn: dim_fecha.fecha_key
+
+relationship 5653be7b-6463-5e09-a406-49a2d834c985
+	fromColumn: fact_tickets.equipo_id
+	toColumn: dim_equipo.equipo_id
+
+relationship 4a2b6dd5-1628-515c-9b40-4bc897d7f3d8
+	fromColumn: fact_tickets.usuario_id
+	toColumn: dim_usuario.usuario_id
+
+relationship 33ac1799-faf3-5905-b5ab-87a920a8a9b4
+	fromColumn: fact_tickets.prioridad
+	toColumn: dim_prioridad.prioridad
+

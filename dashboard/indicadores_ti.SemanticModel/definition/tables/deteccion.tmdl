@@ -1,0 +1,59 @@
+table deteccion
+	lineageTag: 09566edf-8b3b-40e5-8689-0af91033f4d8
+
+	column familia
+		dataType: string
+		lineageTag: 362320c8-2f0e-4642-9722-b66d4e300a80
+		summarizeBy: none
+		sourceColumn: familia
+
+	column regla
+		dataType: string
+		lineageTag: 91251d01-5300-4c10-a096-40eb5dd84470
+		summarizeBy: none
+		sourceColumn: regla
+
+	column inyectadas
+		dataType: int64
+		lineageTag: 903ba5d3-a5b9-4e83-918c-65f126db63c8
+		summarizeBy: none
+		sourceColumn: inyectadas
+
+	column detectadas
+		dataType: int64
+		lineageTag: a22a7af1-0088-4bbd-9c8e-8ef7788fae56
+		summarizeBy: none
+		sourceColumn: detectadas
+
+	column aciertos
+		dataType: int64
+		lineageTag: 2e4bc0dc-7478-4f2d-b9a0-d59fd99c8428
+		summarizeBy: none
+		sourceColumn: aciertos
+
+	column falsos_positivos
+		dataType: int64
+		lineageTag: c4493cd9-770a-4e1c-98f4-26d444bfa042
+		summarizeBy: none
+		sourceColumn: falsos_positivos
+
+	column tasa_deteccion
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7d228411-5dd6-41eb-bcbe-32c20f61981e
+		summarizeBy: none
+		sourceColumn: tasa_deteccion
+
+	partition deteccion = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaProyecto & "resultados\calidad\" & Conjunto & "\deteccion.csv"), [Delimiter = ",", Encoding = 65001]),
+				    Cabecera = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Cabecera, {
+				        {"familia", type text}, {"regla", type text},
+				        {"inyectadas", Int64.Type}, {"detectadas", Int64.Type}, {"aciertos", Int64.Type},
+				        {"falsos_positivos", Int64.Type}, {"tasa_deteccion", type number}}, "en-US")
+				in
+				    Tipos
+
