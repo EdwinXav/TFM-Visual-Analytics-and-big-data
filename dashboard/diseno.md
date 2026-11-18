@@ -285,9 +285,16 @@ Las respuestas correctas de cada tarea se anotan con el conjunto usado en la pru
 
 ## 6. Entregables y orden de construcción
 
-El dashboard se guarda como **proyecto de Power BI (PBIP)**: `dashboard/indicadores_ti.pbip`, con el modelo en `indicadores_ti.SemanticModel/model.bim` y el informe en `indicadores_ti.Report/`. A diferencia del `.pbix` (binario), son ficheros de texto: los cambios del modelo y de las medidas quedan visibles en el historial de git. La caché de datos (`.pbi/cache.abf`) no se versiona; al abrir el proyecto basta con pulsar *Actualizar*.
+El dashboard se guarda como **proyecto de Power BI (PBIP)**: `dashboard/indicadores_ti.pbip`, con el modelo en `indicadores_ti.SemanticModel/definition/` (formato TMDL) y el informe en `indicadores_ti.Report/definition/` (formato PBIR, un fichero JSON por página y por visual). A diferencia del `.pbix` (binario), son ficheros de texto: los cambios del modelo y de las medidas quedan visibles en el historial de git. La caché de datos (`.pbi/cache.abf`) no se versiona; al abrir el proyecto basta con pulsar *Actualizar*.
 
-Estado (15/11/2026): pasos 1–4 hechos sobre `n100000`. Las fechas `INT96` se leen correctamente, sin cambiar el pipeline. La verificación (`python -m src.evaluacion.verificar_dax --n 100000`) da 48/48 filas coincidentes, con diferencia máxima 0. La tabla de verificación se ha obtenido con una consulta DAX contra el modelo de Power BI Desktop. ***[Pendiente: el visual de tabla en la página «Verificación».]***
+Estado (15/11/2026): pasos 1–4 hechos sobre `n100000`. Las fechas `INT96` se leen correctamente, sin cambiar el pipeline. La verificación (`python -m src.evaluacion.verificar_dax --n 100000`) da 48/48 filas coincidentes, con diferencia máxima 0. La tabla de verificación se ha obtenido con una consulta DAX contra el modelo de Power BI Desktop.
+
+Estado (17/11/2026): paso 5 hecho. Las cinco páginas visibles y la de verificación (oculta, con su tabla) están construidas; se añadieron cinco medidas auxiliares (`Plazo SLA (h)`, `Tasa por familia`, `Anomalías inyectadas`, `Aciertos`, `Falsos positivos`). Decisiones tomadas al construirlas:
+- Las tarjetas de KPI son tarjetas clásicas con unidades «Ninguna»: con las abreviaturas por defecto («1,3 mil») no se distinguía Valencia (1 261) de Bilbao (1 258), que es la tarea SUS 3. Las etiquetas de las barras usan el mismo criterio.
+- El segmentador de trimestres de Servicio es una lista vertical (no mosaico) y excluye el valor en blanco.
+- Tema: el base de Power BI más `tema_tfm.json` (escala ordinal de prioridad).
+
+Tras guardar, la verificación sigue en 48/48 y las respuestas de las cinco tareas SUS se han comprobado por consulta DAX: ProBook 450 (31,16), Crítica 77,7 % en 2025-T4, Valencia 1 261, Madrid 679 e integridad referencial 1 000. ***[Pendiente: formato condicional de color de fondo en las matrices de Servicio y Relación, línea de promedio en K9, texto alternativo y ensayo de las tareas SUS con tiempos y clics (paso 6).]***
 
 1. Parámetros y consultas; comprobar tipos (fechas `INT96`, booleanos). → captura del modelo.
 2. Relaciones, tabla de fechas, columnas calculadas y ocultación.

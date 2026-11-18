@@ -1,0 +1,114 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "bdd0adfb0a055e4582a5",
+  "position": {
+    "x": 16,
+    "y": 468,
+    "z": 8000,
+    "height": 200,
+    "width": 1248,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "calidad_resumen"
+                    }
+                  },
+                  "Property": "regla"
+                }
+              },
+              "queryRef": "calidad_resumen.regla",
+              "nativeQueryRef": "regla",
+              "active": true,
+              "displayName": "Regla"
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "calidad_resumen"
+                    }
+                  },
+                  "Property": "tabla"
+                }
+              },
+              "queryRef": "calidad_resumen.tabla",
+              "nativeQueryRef": "tabla",
+              "active": true,
+              "displayName": "Tabla"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Incumplimientos"
+                }
+              },
+              "queryRef": "_Medidas.Incumplimientos",
+              "nativeQueryRef": "Incumplimientos",
+              "displayName": "Incumplimientos"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Incumplimientos por tabla y regla'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
