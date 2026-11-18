@@ -170,6 +170,31 @@ table _Medidas
 		displayFolder: Verificación
 		lineageTag: a6c1e4e7-c9d0-4cc2-a707-2100891f5c69
 
+	measure 'Plazo SLA (h)' = SELECTEDVALUE ( dim_prioridad[sla_horas] )
+		formatString: 0
+		displayFolder: Servicio
+		lineageTag: ec8f9fc1-42cc-4845-a579-f6c580d8ab10
+
+	measure 'Tasa por familia' = AVERAGE ( deteccion[tasa_deteccion] )
+		formatString: 0.0%
+		displayFolder: Calidad
+		lineageTag: bb7edbd4-7150-40f6-90ed-b3aafd9c63b2
+
+	measure 'Anomalías inyectadas' = SUM ( deteccion[inyectadas] )
+		formatString: #,0
+		displayFolder: Calidad
+		lineageTag: bfa53a76-d521-46d5-b533-fb204009cd71
+
+	measure Aciertos = SUM ( deteccion[aciertos] )
+		formatString: #,0
+		displayFolder: Calidad
+		lineageTag: 3bfe6373-cde2-463e-abce-83c8cd803bf2
+
+	measure 'Falsos positivos' = SUM ( deteccion[falsos_positivos] )
+		formatString: #,0
+		displayFolder: Calidad
+		lineageTag: aadc33cc-452b-453f-884a-67d5c5719b4c
+
 	column auxiliar
 		dataType: string
 		isHidden
