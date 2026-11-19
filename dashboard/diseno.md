@@ -294,7 +294,9 @@ Estado (17/11/2026): paso 5 hecho. Las cinco páginas visibles y la de verificac
 - El segmentador de trimestres de Servicio es una lista vertical (no mosaico) y excluye el valor en blanco.
 - Tema: el base de Power BI más `tema_tfm.json` (escala ordinal de prioridad).
 
-Tras guardar, la verificación sigue en 48/48 y las respuestas de las cinco tareas SUS se han comprobado por consulta DAX: ProBook 450 (31,16), Crítica 77,7 % en 2025-T4, Valencia 1 261, Madrid 679 e integridad referencial 1 000. ***[Pendiente: formato condicional de color de fondo en las matrices de Servicio y Relación, línea de promedio en K9, texto alternativo y ensayo de las tareas SUS con tiempos y clics (paso 6).]***
+Tras guardar, la verificación sigue en 48/48 y las respuestas de las cinco tareas SUS se han comprobado por consulta DAX: ProBook 450 (31,16), Crítica 77,7 % en 2025-T4, Valencia 1 261, Madrid 679 e integridad referencial 1 000. 
+
+Estado (18/11/2026): matrices de Servicio (MTTR) y Relación (tickets) con color de fondo en degradado (mapa de calor) y texto alternativo en todos los gráficos y tarjetas. En K9 se probó la línea de promedio, pero coincidía con el final de casi todas las barras y tapaba sus valores; se descartó y los valores van dentro del extremo de cada barra. La verificación sigue en 48/48 y las respuestas SUS no cambian. ***[Pendiente: ensayo de las tareas SUS con tiempos y clics (paso 6).]***
 
 1. Parámetros y consultas; comprobar tipos (fechas `INT96`, booleanos). → captura del modelo.
 2. Relaciones, tabla de fechas, columnas calculadas y ocultación.

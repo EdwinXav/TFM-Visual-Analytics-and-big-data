@@ -87,6 +87,21 @@
           }
         }
       ]
+    },
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tarjeta con el indicador Backlog al corte'"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }
