@@ -1,6 +1,6 @@
 ﻿# Mide el tiempo de actualización completa del modelo de Power BI Desktop para cada tamaño.
 # Uso (PowerShell, con el proyecto abierto en Power BI Desktop):
-#   .srcevaluacionmedir_refresco_powerbi.ps1 -Salida resultados	iempospowerbi_actualizacion.csv
+#   .\src\evaluacion\medir_refresco_powerbi.ps1 -Salida resultados\tiempos\powerbi_actualizacion.csv
 # Cambia el parámetro Conjunto con TOM, mide el refresco completo (TMSL) y al final deja n100000.
 param([string]$Salida, [int]$Repeticiones = 3, [int[]]$Tamanos = @(1000, 10000, 100000, 1000000))
 $m = Get-Process msmdsrv | Select-Object -First 1
