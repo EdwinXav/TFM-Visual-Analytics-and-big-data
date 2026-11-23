@@ -26,6 +26,12 @@ def test_admite_registro_de_excel_con_punto_y_coma_y_coma_decimal(tmp_path):
     assert tiempos_b(r).loc[0, "latencia_s"] == pytest.approx(13.5)
 
 
+def test_segundos_vacios_se_calculan_con_las_horas(tmp_path):
+    r = _registro(tmp_path, ["1000,1,F1,10:05:12,10:13:40,,", "1000,1,F2,10:13:40,10:27:03,,",
+                             "1000,1,F3,10:27:03,10:32:50,,", "1000,1,F4,10:32:50,10:44:15,,error corregido"])
+    assert tiempos_b(r).loc[0, "latencia_s"] == 39 * 60 + 3
+
+
 def test_repeticion_incompleta_da_error(tmp_path):
     r = _registro(tmp_path, ["1000,1,F1,,,1,", "1000,1,F2,,,1,", "1000,1,F3,,,1,", "1000,1,F4,,,1,",
                              "1000,2,F1,,,1,"])

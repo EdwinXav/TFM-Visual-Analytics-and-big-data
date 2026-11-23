@@ -36,7 +36,15 @@ def leer_registro_b(fichero: Path) -> pd.DataFrame:
     df["n"] = df["n"].astype(int)
     df["repeticion"] = df["repeticion"].astype(int)
     df["fase"] = df["fase"].str.strip().str.upper()
-    df["segundos"] = df["segundos"].str.replace(",", ".", regex=False).astype(float)
+    df["segundos"] = pd.to_numeric(df["segundos"].str.replace(",", ".", regex=False), errors="coerce")
+    # Si «segundos» está vacío, se calcula con las horas de inicio y fin (hh:mm:ss del mismo día).
+    vacio = df["segundos"].isna()
+    if vacio.any():
+        ini = pd.to_timedelta(df.loc[vacio, "inicio"].str.strip())
+        fin = pd.to_timedelta(df.loc[vacio, "fin"].str.strip())
+        df.loc[vacio, "segundos"] = (fin - ini).dt.total_seconds()
+    if df["segundos"].isna().any() or (df["segundos"] < 0).any():
+        raise ValueError(f"Fases sin tiempo válido:\n{df[df['segundos'].isna() | (df['segundos'] < 0)]}")
     return df
 
 
