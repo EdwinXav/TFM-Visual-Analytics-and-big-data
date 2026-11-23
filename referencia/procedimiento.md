@@ -4,7 +4,7 @@ Reproduce cómo se calcularían los indicadores sin automatización. Se fija **a
 
 ## Alcance y condiciones
 - **Conjuntos:** `data/raw/n1000` y `data/raw/n10000`. Los tamaños mayores no se ejecutan: Excel admite 1.048.576 filas por hoja y su rendimiento se degrada mucho antes.
-- **Repeticiones:** 3 por tamaño, cada una en un libro nuevo y en orden: todas las de 10³ y después las de 10⁴.
+- **Repeticiones:** 2 por tamaño, cada una en un libro nuevo y en orden: las de 10³ y después las de 10⁴. Pueden hacerse en días distintos; se anota la fecha en `incidencias` si cambia. Se fijaron 2 (no 3) antes de empezar, por el coste de cada ejecución manual (unos 40 min).
 - **Herramienta:** Microsoft Excel para Microsoft 365, versión 2408, en inglés (fórmulas en inglés con separador `;`).
 - **Ejecuta:** el autor, en el mismo equipo que el escenario A.
 - **No se permite:** macros, scripts, herramientas de IA ni transformaciones de Power Query. La carga con `From Text/CSV` solo importa los ficheros.
@@ -121,4 +121,4 @@ Devuelve la tasa de detección por familia, los falsos positivos y si los indica
 Las fórmulas se comprobaron una vez, antes de fijar este documento, mediante automatización sobre `n1000` y `n10000`. Esa comprobación no forma parte del experimento ni aporta tiempos. Coincidieron con el escenario A: 41/41 y 406/406 anomalías sin falsos positivos, y 46/46 y 48/48 valores de indicadores.
 
 ## Limitaciones
-El autor ejecuta el procedimiento, conoce las fórmulas y las copia, y sus tiempos pueden mejorar de una repetición a otra. Por eso el orden es fijo y se documenta cada repetición.
+El autor ejecuta el procedimiento, conoce las fórmulas y las copia, y sus tiempos pueden mejorar de una repetición a otra. Por eso el orden es fijo y se documenta cada repetición. Con 2 repeticiones por tamaño se informa la media y el rango (mínimo y máximo), no una desviación típica, que con dos valores no es representativa.

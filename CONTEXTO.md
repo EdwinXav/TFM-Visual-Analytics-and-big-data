@@ -61,7 +61,7 @@ Mismo conjunto de datos en dos escenarios:
 
 | Métrica | Medición |
 |---|---|
-| Tiempo de procesamiento | A: duración registrada por Airflow/Spark, 5 repeticiones × 4 tamaños (10^3–10^6). B: cronometraje manual, 3 repeticiones × 2 tamaños (10^3, 10^4). Media y dispersión. |
+| Tiempo de procesamiento | A: duración registrada por Airflow/Spark, 5 repeticiones × 4 tamaños (10^3–10^6). B: cronometraje manual, 2 repeticiones × 2 tamaños (10^3, 10^4). Media y dispersión. |
 | Calidad del dato | % de registros que incumplen reglas tras el proceso; tasa de detección de anomalías; completitud de la salida. |
 | Disponibilidad de indicadores | Tiempo desde la llegada de datos hasta que los indicadores son consultables (en A: hasta la capa analítica; la actualización de Power BI Desktop es manual y se mide aparte); proporción de indicadores disponibles frente a los definidos. |
 | Usabilidad del dashboard | Cuestionario SUS (Brooke, 1996) a 5–8 compañeros de TI tras realizar tareas guiadas con el dashboard; anónimo y con consentimiento informado. |
