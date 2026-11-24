@@ -162,7 +162,7 @@ cultureInfo es-ES
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Abiertos en el periodo": {
+			          "Tickets abiertos en el periodo": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -193,7 +193,7 @@ cultureInfo es-ES
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Cerrados en el periodo": {
+			          "Tickets cerrados en el periodo": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -214,7 +214,7 @@ cultureInfo es-ES
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Backlog al corte": {
+			          "Tickets pendientes": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -235,7 +235,7 @@ cultureInfo es-ES
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "MTTR (horas)": {
+			          "Tiempo medio de resolución (h)": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -245,7 +245,7 @@ cultureInfo es-ES
 			          }
 			        },
 			        {
-			          "MTTR (h)": {
+			          "Horas (media)": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -266,7 +266,7 @@ cultureInfo es-ES
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Cumplimiento SLA": {
+			          "% resueltos dentro del SLA": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -476,7 +476,7 @@ cultureInfo es-ES
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Incumplimientos": {
+			          "Registros con errores": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -602,7 +602,7 @@ cultureInfo es-ES
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Regla": {
+			          "Tipo de error": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -644,7 +644,28 @@ cultureInfo es-ES
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Familia de anomalía": {
+			          "Tipo de error": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas.tasa_por_familia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Tasa por familia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% detectado": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

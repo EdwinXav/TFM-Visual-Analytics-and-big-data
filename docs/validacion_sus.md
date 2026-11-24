@@ -8,5 +8,6 @@
   3. ¿Qué ubicación tiene mayor backlog?
   4. ¿Cuántas garantías han vencido en Madrid?
   5. ¿Cuántos registros se rechazaron por integridad referencial?
+- **Ensayo (23/11/2026):** el autor recorrió las tareas antes de las sesiones. Varios términos no se entendían sin explicación («backlog», «MTTR», «parque», los nombres técnicos de las reglas de calidad), así que se aclararon en el dashboard (ver `dashboard/diseno.md`). En el formulario, la tarea 3 quedó como «¿Qué ubicación del usuario tiene más tickets pendientes (sin resolver)?» y el ítem 8 del SUS como «El dashboard me ha resultado muy engorroso (pesado, poco práctico) de usar». El ensayo (P0) no entra en el cálculo.
 - **Medidas:** puntuación SUS (0–100) por participante y media; % de tareas completadas; comentarios cualitativos. Referencia de interpretación: Bangor et al. (2008).
 - **Resultados:** `resultados/sus/` (respuestas anonimizadas en CSV).

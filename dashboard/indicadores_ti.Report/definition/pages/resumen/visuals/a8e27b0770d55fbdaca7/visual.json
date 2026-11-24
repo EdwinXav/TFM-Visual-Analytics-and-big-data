@@ -29,7 +29,7 @@
               },
               "queryRef": "_Medidas.% cumplimiento SLA",
               "nativeQueryRef": "% cumplimiento SLA",
-              "displayName": "% resueltos dentro del SLA"
+              "displayName": "% dentro del SLA"
             }
           ]
         }

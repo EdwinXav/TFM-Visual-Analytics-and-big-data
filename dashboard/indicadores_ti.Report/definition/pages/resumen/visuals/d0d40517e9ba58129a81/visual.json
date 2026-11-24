@@ -29,7 +29,7 @@
               },
               "queryRef": "_Medidas.MTTR (h)",
               "nativeQueryRef": "MTTR (h)",
-              "displayName": "Tiempo medio de resolución (h)"
+              "displayName": "Resolución media (h)"
             }
           ]
         }

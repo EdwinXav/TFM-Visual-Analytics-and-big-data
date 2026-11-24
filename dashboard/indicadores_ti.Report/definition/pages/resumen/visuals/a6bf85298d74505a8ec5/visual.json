@@ -29,7 +29,7 @@
               },
               "queryRef": "_Medidas.Tickets abiertos",
               "nativeQueryRef": "Tickets abiertos",
-              "displayName": "Tickets abiertos en el periodo"
+              "displayName": "Tickets abiertos"
             }
           ]
         }
@@ -95,7 +95,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tarjeta con el indicador Tickets abiertos en el periodo'"
+                  "Value": "'Tarjeta con el indicador Tickets abiertos en el periodo seleccionado'"
                 }
               }
             }
