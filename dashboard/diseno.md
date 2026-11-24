@@ -296,7 +296,15 @@ Estado (17/11/2026): paso 5 hecho. Las cinco páginas visibles y la de verificac
 
 Tras guardar, la verificación sigue en 48/48 y las respuestas de las cinco tareas SUS se han comprobado por consulta DAX: ProBook 450 (31,16), Crítica 77,7 % en 2025-T4, Valencia 1 261, Madrid 679 e integridad referencial 1 000. 
 
-Estado (18/11/2026): matrices de Servicio (MTTR) y Relación (tickets) con color de fondo en degradado (mapa de calor) y texto alternativo en todos los gráficos y tarjetas. En K9 se probó la línea de promedio, pero coincidía con el final de casi todas las barras y tapaba sus valores; se descartó y los valores van dentro del extremo de cada barra. La verificación sigue en 48/48 y las respuestas SUS no cambian. ***[Pendiente: ensayo de las tareas SUS con tiempos y clics (paso 6).]***
+Estado (18/11/2026): matrices de Servicio (MTTR) y Relación (tickets) con color de fondo en degradado (mapa de calor) y texto alternativo en todos los gráficos y tarjetas. En K9 se probó la línea de promedio, pero coincidía con el final de casi todas las barras y tapaba sus valores; se descartó y los valores van dentro del extremo de cada barra. La verificación sigue en 48/48 y las respuestas SUS no cambian. Ensayo SUS hecho el 23/11/2026 (paso 6).
+
+Estado (23/11/2026): cambios de texto tras el ensayo, porque varios términos no se entendían sin explicación. Los datos, las medidas y las respuestas de las tareas no cambian.
+- Cada página tiene un título propio y una línea que dice qué se está viendo, en lugar del rótulo general «Indicadores operativos TI».
+- La página «Parque» pasa a llamarse «Equipos».
+- Se sustituyen los términos técnicos: «Backlog» pasa a «Tickets pendientes» (sin resolver al final del periodo seleccionado) y «MTTR» pasa a «Tiempo medio de resolución (h)». Las tarjetas indican que se trata de tickets y el SLA se explica en la página de Servicio.
+- En Calidad, las reglas y las familias de anomalía usan nombres comprensibles (p. ej. «Campos vacíos (completitud)»): se hace en Power Query, sin tocar el pipeline. Los gráficos de reglas y de detección son más altos, para que se vea la regla de unicidad sin barra de desplazamiento.
+
+Verificación tras el cambio: 48/48 y las cinco respuestas SUS iguales.
 
 1. Parámetros y consultas; comprobar tipos (fechas `INT96`, booleanos). → captura del modelo.
 2. Relaciones, tabla de fechas, columnas calculadas y ocultación.

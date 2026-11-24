@@ -139,7 +139,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Barras con los tickets por equipo de cada modelo, de mayor a menor, con la media de los modelos'"
+                  "Value": "'Barras con los tickets por equipo de cada modelo, de mayor a menor'"
                 }
               }
             }

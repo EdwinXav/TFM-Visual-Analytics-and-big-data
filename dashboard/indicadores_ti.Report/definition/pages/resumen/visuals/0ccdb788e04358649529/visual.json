@@ -47,7 +47,8 @@
                 }
               },
               "queryRef": "_Medidas.Backlog",
-              "nativeQueryRef": "Backlog"
+              "nativeQueryRef": "Backlog",
+              "displayName": "Tickets pendientes"
             }
           ]
         }
@@ -106,7 +107,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Backlog por ubicación del usuario'"
+                  "Value": "'Tickets pendientes por ubicación del usuario'"
                 }
               }
             }
@@ -119,7 +120,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Abiertos y sin resolver al final del periodo seleccionado'"
                 }
               }
             }
@@ -132,7 +140,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Barras horizontales con los tickets pendientes al corte por ubicación del usuario, de mayor a menor'"
+                  "Value": "'Barras horizontales con los tickets pendientes al final del periodo por ubicación del usuario, de mayor a menor'"
                 }
               }
             }

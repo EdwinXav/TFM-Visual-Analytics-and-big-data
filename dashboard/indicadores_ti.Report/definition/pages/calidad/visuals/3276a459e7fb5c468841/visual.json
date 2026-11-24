@@ -6,7 +6,7 @@
     "y": 8,
     "z": 0,
     "height": 64,
-    "width": 900,
+    "width": 1248,
     "tabOrder": 0
   },
   "visual": {
@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Indicadores operativos TI",
+                    "value": "Calidad de los datos cargados",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "20pt",
@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Resultado de la validación del pipeline (conjunto cargado)",
+                    "value": "Registros que el pipeline revisó al cargar los datos, cuántos rechazó y por qué tipo de error",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#605E5C"

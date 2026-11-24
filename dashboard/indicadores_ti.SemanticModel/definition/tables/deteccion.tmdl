@@ -53,7 +53,9 @@ table deteccion
 				    Tipos = Table.TransformColumnTypes(Cabecera, {
 				        {"familia", type text}, {"regla", type text},
 				        {"inyectadas", Int64.Type}, {"detectadas", Int64.Type}, {"aciertos", Int64.Type},
-				        {"falsos_positivos", Int64.Type}, {"tasa_deteccion", type number}}, "en-US")
+				        {"falsos_positivos", Int64.Type}, {"tasa_deteccion", type number}}, "en-US"),
+				    Nombres = [nulos = "Campos vacíos (completitud)", fuera_de_catalogo = "Valores no válidos (validez)", fechas_incoherentes = "Fechas incoherentes (consistencia temporal)", huerfanos = "Referencias inexistentes (integridad referencial)", duplicados = "Duplicados (unicidad)"],
+				    Legible = Table.TransformColumns(Tipos, {{"familia", each Record.FieldOrDefault(Nombres, _, _), type text}})
 				in
-				    Tipos
+				    Legible
 

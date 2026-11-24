@@ -3,9 +3,9 @@
   "name": "bdd0adfb0a055e4582a5",
   "position": {
     "x": 16,
-    "y": 468,
+    "y": 536,
     "z": 8000,
-    "height": 200,
+    "height": 136,
     "width": 1248,
     "tabOrder": 8000
   },
@@ -29,7 +29,7 @@
               "queryRef": "calidad_resumen.regla",
               "nativeQueryRef": "regla",
               "active": true,
-              "displayName": "Regla"
+              "displayName": "Tipo de error"
             }
           ]
         },
@@ -68,7 +68,7 @@
               },
               "queryRef": "_Medidas.Incumplimientos",
               "nativeQueryRef": "Incumplimientos",
-              "displayName": "Incumplimientos"
+              "displayName": "Registros con errores"
             }
           ]
         }
@@ -88,7 +88,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Incumplimientos por tabla y regla'"
+                  "Value": "'Registros con errores, por tabla y tipo de error'"
                 }
               }
             }

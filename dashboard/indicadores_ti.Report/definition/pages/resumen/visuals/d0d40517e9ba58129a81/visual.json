@@ -29,7 +29,7 @@
               },
               "queryRef": "_Medidas.MTTR (h)",
               "nativeQueryRef": "MTTR (h)",
-              "displayName": "MTTR (horas)"
+              "displayName": "Tiempo medio de resolución (h)"
             }
           ]
         }
@@ -95,7 +95,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tarjeta con el indicador MTTR (horas)'"
+                  "Value": "'Tarjeta con el indicador Tiempo medio de resolución en horas'"
                 }
               }
             }

@@ -29,7 +29,9 @@ table calidad_resumen
 		mode: import
 		source =
 				let
-				    Origen = Parquet.Document(File.Contents(RutaProyecto & "data\analytics\" & Conjunto & "\calidad_resumen.parquet"))
+				    Origen = Parquet.Document(File.Contents(RutaProyecto & "data\analytics\" & Conjunto & "\calidad_resumen.parquet")),
+				    Nombres = [completitud = "Campos vacíos (completitud)", validez = "Valores no válidos (validez)", consistencia_temporal = "Fechas incoherentes (consistencia temporal)", integridad_referencial = "Referencias inexistentes (integridad referencial)", unicidad = "Duplicados (unicidad)"],
+				    Legible = Table.TransformColumns(Origen, {{"regla", each Record.FieldOrDefault(Nombres, _, _), type text}})
 				in
-				    Origen
+				    Legible
 

@@ -5,7 +5,7 @@
     "x": 650,
     "y": 204,
     "z": 7000,
-    "height": 250,
+    "height": 320,
     "width": 614,
     "tabOrder": 7000
   },
@@ -29,7 +29,7 @@
               "queryRef": "deteccion.familia",
               "nativeQueryRef": "familia",
               "active": true,
-              "displayName": "Familia de anomalía"
+              "displayName": "Tipo de error"
             }
           ]
         },
@@ -93,7 +93,8 @@
                 }
               },
               "queryRef": "_Medidas.Tasa por familia",
-              "nativeQueryRef": "Tasa por familia"
+              "nativeQueryRef": "Tasa por familia",
+              "displayName": "% detectado"
             }
           ]
         }
@@ -135,7 +136,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tasa de detección por familia de anomalía'"
+                  "Value": "'% de errores introducidos que el pipeline detectó, por tipo'"
                 }
               }
             }

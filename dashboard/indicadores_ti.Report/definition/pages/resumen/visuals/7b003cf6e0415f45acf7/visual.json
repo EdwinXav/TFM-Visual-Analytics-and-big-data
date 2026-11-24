@@ -6,7 +6,7 @@
     "y": 8,
     "z": 0,
     "height": 64,
-    "width": 900,
+    "width": 1024,
     "tabOrder": 0
   },
   "visual": {
@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Indicadores operativos TI",
+                    "value": "Tickets de soporte TI: resumen",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "20pt",
@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Datos simulados · corte 31/12/2025",
+                    "value": "Incidencias que los usuarios abren al soporte de TI: cuántas se abren, se cierran y siguen pendientes · datos simulados hasta 31/12/2025",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#605E5C"

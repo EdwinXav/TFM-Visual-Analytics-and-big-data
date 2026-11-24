@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "La tasa de detección solo es calculable porque los datos son simulados: se compara la cuarentena con el registro de anomalías inyectadas.",
+                    "value": "El % detectado solo se puede calcular porque los datos son simulados: se sabe qué errores se introdujeron y se comparan con los registros que el pipeline rechazó.",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#605E5C",

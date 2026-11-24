@@ -103,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cumplimiento de SLA por trimestre'"
+                  "Value": "'% de tickets resueltos dentro del SLA, por trimestre'"
                 }
               }
             }

@@ -65,7 +65,8 @@
                 }
               },
               "queryRef": "_Medidas.MTTR (h)",
-              "nativeQueryRef": "MTTR (h)"
+              "nativeQueryRef": "MTTR (h)",
+              "displayName": "Tiempo medio de resolución (h)"
             }
           ]
         }
@@ -124,7 +125,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'MTTR (horas) por prioridad'"
+                  "Value": "'Tiempo medio de resolución (h) por prioridad'"
                 }
               }
             }

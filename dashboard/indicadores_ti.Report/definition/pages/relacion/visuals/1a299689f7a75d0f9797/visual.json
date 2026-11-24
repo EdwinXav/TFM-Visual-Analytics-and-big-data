@@ -6,7 +6,7 @@
     "y": 8,
     "z": 0,
     "height": 64,
-    "width": 900,
+    "width": 1024,
     "tabOrder": 0
   },
   "visual": {
@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Indicadores operativos TI",
+                    "value": "Tickets según equipo, departamento y ubicación",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "20pt",
@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Datos simulados · incidencias por modelo, departamento y ubicación",
+                    "value": "Qué modelos de equipo generan más tickets y de qué departamentos y ubicaciones llegan · datos simulados",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#605E5C"

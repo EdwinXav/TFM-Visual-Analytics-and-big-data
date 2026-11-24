@@ -29,7 +29,7 @@
               },
               "queryRef": "_Medidas.Backlog",
               "nativeQueryRef": "Backlog",
-              "displayName": "Backlog al corte"
+              "displayName": "Tickets pendientes"
             }
           ]
         }
@@ -95,7 +95,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tarjeta con el indicador Backlog al corte'"
+                  "Value": "'Tarjeta con el indicador Tickets pendientes: abiertos y sin resolver al final del periodo seleccionado'"
                 }
               }
             }
