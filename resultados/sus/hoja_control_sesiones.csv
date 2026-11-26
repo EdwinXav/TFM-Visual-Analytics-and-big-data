@@ -1,5 +1,6 @@
 ﻿codigo;fecha;dispositivo;t1_segundos;t1_clics;t1_acierto;t2_segundos;t2_clics;t2_acierto;t3_segundos;t3_clics;t3_acierto;t4_segundos;t4_clics;t4_acierto;t5_segundos;t5_clics;t5_acierto;observaciones
-P1;;;;;;;;;;;;;;;;;;
+P0;23/11/2026;PC escritorio;10;3;si;65;14;si;60;10;si;49;15;si;32;6;si;Hay algunas preguntas que no entienden directamente, o frases y palabras que hacen que se complique ligeramente la lectura de los datos, en el dashboard falta algun titulo en cada página que me indique que es lo que estoy viendo
+P1;25/11/2026;Laptop;12;4;si;25;8;si;52;14;si;10;3;si;25;5;si;Le gustaria ver más color
 P2;;;;;;;;;;;;;;;;;;
 P3;;;;;;;;;;;;;;;;;;
 P4;;;;;;;;;;;;;;;;;;

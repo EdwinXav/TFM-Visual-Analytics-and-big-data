@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "0ccdb788e04358649529",
   "position": {
     "x": 874,
@@ -127,7 +127,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Abiertos y sin resolver al final del periodo seleccionado'"
+                  "Value": "'Abiertos y sin resolver'"
                 }
               }
             }
@@ -149,5 +149,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "52248609fe8a5efc31f6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_usuario"
+              }
+            },
+            "Property": "ubicacion"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1637a62232e431aec2a9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Backlog"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
