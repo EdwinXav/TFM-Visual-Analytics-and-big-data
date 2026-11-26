@@ -1,0 +1,5 @@
+n,a_reps,a_latencia_media,a_latencia_std,b_reps,b_latencia_media,b_latencia_std,b_tasa_deteccion_min,b_kpi_coincidentes_min,b_falsos_positivos_max,b_kpi_comparados_max,cociente_b_a
+1000,5,35.415,1.62,1.0,2409.0,,0.976,26.0,66.0,46.0,68.022
+10000,5,34.993,2.697,,,,,,,,
+100000,5,39.23,0.944,,,,,,,,
+1000000,5,53.683,2.974,,,,,,,,

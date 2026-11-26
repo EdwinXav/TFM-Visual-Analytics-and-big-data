@@ -1,0 +1,49 @@
+kpi;dimension;categoria;valor 
+K1;total;total;960
+K2;total;total;903
+K3;total;total;57
+K4;total;total;16,42184908
+K5;total;total;86,71096346
+K4;prioridad;Critica;2,763172222
+K4;prioridad;Alta;4,617956597
+K4;prioridad;Media;13,61227941
+K4;prioridad;Baja;31,61462373
+K5;prioridad;Critica;74
+K5;prioridad;Alta;85
+K5;prioridad;Media;85,52036199
+K5;prioridad;Baja;92,43027888
+K6;estado;En uso;0
+K6;estado;En reparacion;0
+K6;estado;En stock;0
+K6;estado;Baja;0
+K7;total;total;#DIV/0!
+K8;total;total;0
+K9;modelo;Latitude 5440;
+K9;modelo;Latitude 7440;
+K9;modelo;OptiPlex 7010;
+K9;modelo;P2423;
+K9;modelo;EliteBook 840;
+K9;modelo;ProBook 450;
+K9;modelo;ProDesk 400;
+K9;modelo;LaserJet M404;
+K9;modelo;ThinkPad T14;
+K9;modelo;ThinkPad E14;
+K9;modelo;ThinkCentre M70;
+K9;modelo;MacBook Air M2;
+K9;modelo;iPhone 14;
+K9;modelo;iPad 10;
+K9;modelo;Galaxy A54;
+K9;modelo;Galaxy Tab S9;
+K10;departamento;Finanzas;183
+K10;departamento;Recursos Humanos;41
+K10;departamento;Comercial;176
+K10;departamento;Operaciones;70
+K10;departamento;Marketing;175
+K10;departamento;TI;54
+K10;departamento;Direccion;114
+K10;departamento;Legal;147
+K10;ubicacion;Madrid;55
+K10;ubicacion;Barcelona;309
+K10;ubicacion;Valencia;171
+K10;ubicacion;Sevilla;167
+K10;ubicacion;Bilbao;258

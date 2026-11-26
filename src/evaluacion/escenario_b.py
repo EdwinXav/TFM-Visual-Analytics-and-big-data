@@ -31,7 +31,14 @@ def leer_rechazados(fichero: Path) -> pd.DataFrame:
 
 
 def leer_kpi_excel(fichero: Path) -> pd.DataFrame:
-    return pd.read_csv(fichero, sep=";", decimal=",", encoding="latin-1")
+    """Lee el CSV de Excel. Un error de fórmula (p. ej. ``#DIV/0!``) queda como valor no numérico
+    y cuenta como discrepancia; se limpian espacios (incluido el no separable) de las cabeceras."""
+    df = pd.read_csv(fichero, sep=";", dtype=str, keep_default_na=False, encoding="latin-1")
+    df.columns = [c.strip() for c in df.columns]
+    texto = df["valor"].str.strip()
+    df["valor"] = pd.to_numeric(texto.str.replace(",", ".", regex=False), errors="coerce")
+    df["error_excel"] = texto.str.startswith("#")
+    return df
 
 
 def comparar_kpi(excel: pd.DataFrame, pipeline: pd.DataFrame, tolerancia: float = TOLERANCIA) -> dict:
@@ -45,7 +52,8 @@ def comparar_kpi(excel: pd.DataFrame, pipeline: pd.DataFrame, tolerancia: float 
     faltan = m[m["_merge"] != "both"]
     ambos = m[m["_merge"] == "both"].copy()
     ambos["diferencia"] = (ambos["valor_a"].astype(float) - ambos["valor_b"].astype(float)).abs()
-    distintos = ambos[ambos["diferencia"] > tolerancia]
+    # Un valor vacío o con error en Excel frente a uno de Spark (diferencia NaN) también es distinto.
+    distintos = ambos[~(ambos["diferencia"] <= tolerancia)]
     return {
         "valores_comparados": len(ambos),
         "coincidentes": int((ambos["diferencia"] <= tolerancia).sum()),

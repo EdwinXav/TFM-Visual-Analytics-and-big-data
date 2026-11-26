@@ -15,6 +15,16 @@ def test_lee_csv_con_formato_regional_de_excel(tmp_path):
     assert k["valor"].tolist() == [960, 16.42]
 
 
+def test_error_de_formula_y_cabecera_con_espacio_no_separable(tmp_path):
+    f = tmp_path / "kpi.csv"
+    f.write_bytes("kpi;dimension;categoria;valor\xa0\nK1;total;total;960\nK7;total;total;#DIV/0!\n".encode("latin-1"))
+    k = leer_kpi_excel(f)
+    assert k["valor"].iloc[0] == 960 and pd.isna(k["valor"].iloc[1]) and k["error_excel"].tolist() == [False, True]
+    r = comparar_kpi(k, pd.DataFrame([{"kpi": "K1", "dimension": "total", "categoria": "total", "valor": 960.0},
+                                      {"kpi": "K7", "dimension": "total", "categoria": "total", "valor": 3.0}]))
+    assert r["coincidentes"] == 1 and len(r["distintos"]) == 1
+
+
 def test_traduce_motivos_a_familias(tmp_path):
     f = tmp_path / "r.csv"
     f.write_text("tabla;clave;motivo\ntickets;T1;completitud\ninventario;E1;unicidad\n", encoding="latin-1")
