@@ -1,3 +1,4 @@
 n,repeticion,F1_s,F2_s,F3_s,F4_s,latencia_s,tasa_deteccion,falsos_positivos,kpi_comparados,kpi_coincidentes,kpi_sin_emparejar
 1000,1,473,1024,557,355,2409,0.976,66,46,26,0
 1000,2,480,840,300,480,2100,1.0,0,46,46,0
+10000,1,300,660,240,360,1560,1.0,0,48,48,0
