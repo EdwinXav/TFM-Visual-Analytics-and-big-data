@@ -3,3 +3,7 @@ n,repeticion,fase,inicio,fin,segundos,incidencias
 1000,1,F2,,,1024,"r_validez de tblE copiado con \| en lugar de |: los 65 equipos quedan como validez; no se detectó durante la ejecución"
 1000,1,F3,,,557,
 1000,1,F4,,,355,"K7 = #DIV/0! por el error de F2. F5 (exportación) hecha después por Excel automatizado desde el libro guardado, sin cronometrar ni recalcular"
+1000,2,F1,20:14,20:22,480,"26/11/2026; horas del reloj del autor con precisión de 1 minuto; libro creado 20:13:18 y guardado al terminar F4 20:51:23"
+1000,2,F2,20:23,20:37,840,
+1000,2,F3,20:37,20:42,300,
+1000,2,F4,20:43,20:51,480,"F5 (exportación) hecha después por Excel automatizado desde el libro guardado, sin cronometrar ni recalcular"
