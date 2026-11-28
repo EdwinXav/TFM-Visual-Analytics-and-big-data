@@ -1,11 +1,11 @@
 ﻿codigo;fecha;dispositivo;t1_segundos;t1_clics;t1_acierto;t2_segundos;t2_clics;t2_acierto;t3_segundos;t3_clics;t3_acierto;t4_segundos;t4_clics;t4_acierto;t5_segundos;t5_clics;t5_acierto;observaciones
 P0;23/11/2026;PC escritorio;10;3;si;65;14;si;60;10;si;49;15;si;32;6;si;Hay algunas preguntas que no entienden directamente, o frases y palabras que hacen que se complique ligeramente la lectura de los datos, en el dashboard falta algun titulo en cada página que me indique que es lo que estoy viendo
 P1;25/11/2026;Laptop;12;4;si;25;8;si;52;14;si;10;3;si;25;5;si;Le gustaria ver más color
-P2;26/11/2026;Laptop;9;4;si;30;15;si;55;8;si;27;23;si;26;4;si;ninguna
-P3;26/11/2026;Laptop;8;2;si;27;18;si;45;12;si;47;15;si;21;7;si;ninguna
+P2;26/11/2026;Laptop;9;4;si;30;15;si;55;8;si;27;13;si;26;4;si;T5: dijo 1000 en voz alta; en el formulario escribió 10000 (error de tecleo)
+P3;26/11/2026;Laptop;8;2;si;27;8;si;45;12;si;47;15;si;21;7;si;ninguna
 P4;26/11/2026;Laptop;10;5;si;46;20;si;49;15;si;37;9;si;18;5;si;ninguna
 P5;26/11/2026;Laptop;15;4;si;53;22;si;72;23;si;43;21;si;35;9;si;ninguna
-P6;;;;;;;;;;;;;;;;;;
-P7;;;;;;;;;;;;;;;;;;
-P8;;;;;;;;;;;;;;;;;;
+P6;27/11/2026;Laptop;16;3;si;27;9;si;47;25;si;26;10;si;29;8;si;ninguna
+P7;27/11/2026;Laptop;15;7;si;47;19;si;49;16;si;58;20;si;18;5;si;ninguna
+P8;27/11/2026;Laptop;14;5;si;29;11;si;58;27;si;39;12;si;36;10;si;Sin observador: tiempos y clics medidos por el propio participante, sentado junto al autor, que hacía a la vez la repetición 2 de 10^4 del escenario B
 P9;;;;;;;;;;;;;;;;;;

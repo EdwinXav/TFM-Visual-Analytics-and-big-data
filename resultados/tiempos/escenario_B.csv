@@ -12,6 +12,6 @@ n,repeticion,fase,inicio,fin,segundos,incidencias
 10000,1,F3,21:53,21:57,240,
 10000,1,F4,21:58,22:04,360,"F5 (exportación) hecha después por Excel automatizado desde el libro guardado, sin cronometrar ni recalcular"
 10000,2,F1,21:00,21:05,300,"27/11/2026; horas del reloj del autor con precisión de 1 minuto; libro creado 20:59:49 y guardado al terminar F4 21:30:41"
-10000,2,F2,21:06,21:18,720,
+10000,2,F2,21:06,21:18,720,"Durante F2 y F3 el autor atendió preguntas puntuales del compañero que hacía a su lado la sesión SUS P8 (21:13-21:20); la interrupción queda incluida en el tiempo"
 10000,2,F3,21:19,21:23,240,
 10000,2,F4,21:24,21:30,360,"F5 (exportación) hecha después por Excel automatizado desde el libro guardado, sin cronometrar ni recalcular"
