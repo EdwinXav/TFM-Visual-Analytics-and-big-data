@@ -1,0 +1,49 @@
+kpi;dimension;categoria;valor
+K1;total;total;9600
+K2;total;total;9020
+K3;total;total;580
+K4;total;total;17,0963839
+K5;total;total;85,90909091
+K4;prioridad;Critica;2,895149573
+K4;prioridad;Alta;5,34256241
+K4;prioridad;Media;13,624711
+K4;prioridad;Baja;36,22802846
+K5;prioridad;Critica;77,13675214
+K5;prioridad;Alta;82,73910583
+K5;prioridad;Media;86,20309051
+K5;prioridad;Baja;89,62305987
+K6;estado;En uso;498
+K6;estado;En reparacion;37
+K6;estado;En stock;75
+K6;estado;Baja;40
+K7;total;total;3,634622951
+K8;total;total;375
+K9;modelo;Latitude 5440;12,53658537
+K9;modelo;Latitude 7440;13,30952381
+K9;modelo;OptiPlex 7010;12,41463415
+K9;modelo;P2423;13,58139535
+K9;modelo;EliteBook 840;14,24444444
+K9;modelo;ProBook 450;36,14705882
+K9;modelo;ProDesk 400;12,52941176
+K9;modelo;LaserJet M404;13,02439024
+K9;modelo;ThinkPad T14;14,48571429
+K9;modelo;ThinkPad E14;10,3
+K9;modelo;ThinkCentre M70;14,04878049
+K9;modelo;MacBook Air M2;13,08888889
+K9;modelo;iPhone 14;11,66666667
+K9;modelo;iPad 10;13,48275862
+K9;modelo;Galaxy A54;23,76315789
+K9;modelo;Galaxy Tab S9;12,51282051
+K10;departamento;Finanzas;992
+K10;departamento;Recursos Humanos;1197
+K10;departamento;Comercial;710
+K10;departamento;Operaciones;1154
+K10;departamento;Marketing;1414
+K10;departamento;TI;1424
+K10;departamento;Direccion;1610
+K10;departamento;Legal;1099
+K10;ubicacion;Madrid;1924
+K10;ubicacion;Barcelona;2433
+K10;ubicacion;Valencia;1808
+K10;ubicacion;Sevilla;1442
+K10;ubicacion;Bilbao;1993
